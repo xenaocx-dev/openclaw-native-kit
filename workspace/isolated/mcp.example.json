@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "topic_memory": {
+      "command": "__NODE24__",
+      "args": [
+        "__KIT_DIR__/helpers/topic-memory-mcp.cjs"
+      ],
+      "env": {
+        "OPENCLAW_TOPIC_MEMORY_ENABLED": "1",
+        "TOPIC_MEMORY_WORKSPACE": "__ISOLATED_WORKSPACE__",
+        "TOPIC_MEMORY_SOURCE": "telegram:__GROUP_ID__:topic:__ISOLATED_TOPIC_ID__"
+      }
+    }
+  }
+}

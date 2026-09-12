@@ -1,0 +1,17 @@
+{
+  "name": "openclaw-native-kit-review",
+  "version": "0.1.0-review",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "scripts": {
+    "test": "node overlay/tests/overlay.test.mjs && node --test overlay/tests/presentation.test.mjs",
+    "check": "node scripts/check-package.mjs"
+  },
+  "optionalDependencies": {
+    "@modelcontextprotocol/sdk": "1.29.0",
+    "zod": "4.4.3"
+  }
+}

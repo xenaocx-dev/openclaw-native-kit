@@ -1,0 +1,16 @@
+{
+  "channels": {
+    "telegram": {
+      "groups": {
+        "__GROUP_ID__": {
+          "topics": {
+            "__TOPIC_ID__": {
+              "requireMention": false,
+              "systemPrompt": "Normal replies are delivered automatically by OpenClaw. This topic may use only its explicitly authorized memory scope."
+            }
+          }
+        }
+      }
+    }
+  }
+}

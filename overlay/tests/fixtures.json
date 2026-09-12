@@ -1,0 +1,46 @@
+[
+  {
+    "path": "overlay/tests/fixtures/openclaw/dist/dispatch-from-config-CmAXENud.mjs",
+    "sha256": "83fa38143291448ea814c76a62971adb44f6f0b7e1aa09efd7ec53bb383910e7"
+  },
+  {
+    "path": "overlay/tests/fixtures/openclaw/dist/acpx-BDOdDqge.mjs",
+    "sha256": "e8f5eaba09f120b5ca2cccf1bacdbfbf2268293f4e622a1d4fb057cbb2be2f04"
+  },
+  {
+    "path": "overlay/tests/fixtures/openclaw/dist/dispatch-acp-txw_fKCF.mjs",
+    "sha256": "5235019300070eb107f6a62d76c194602abb2182c183b918fa634c8e7c3d282c"
+  },
+  {
+    "path": "overlay/tests/fixtures/openclaw/dist/bot-message-nRw-6GtF.mjs",
+    "sha256": "e30343a2f46cf9204c91202b866161c02d8af6389edf5e333477c2a7f7de8d0a"
+  },
+  {
+    "path": "overlay/tests/fixtures/openclaw/dist/session-meta-a5vM4NJL.mjs",
+    "sha256": "9108b2bed89f61a7926501b03ac33986721a5a2a5e10b1af319d37a833f5472d"
+  },
+  {
+    "path": "overlay/tests/fixtures/openclaw/dist/session-reset-service-CAUbxbvS.mjs",
+    "sha256": "0db92ce4e241c6ba3ab8333fa1a50486ae1ccc420ecf9f1796016373d06691e5"
+  },
+  {
+    "path": "overlay/tests/fixtures/openclaw/dist/acp-stateful-target-driver-Cg4nyOQP.mjs",
+    "sha256": "b1343defa42b9ab296c6a69c1eae1507bb53c65988aa33761ee21367dc3f0d38"
+  },
+  {
+    "path": "overlay/tests/fixtures/openclaw/dist/claude-cli-project-dir-D0ArKrOI.mjs",
+    "sha256": "158b78599ce6cf3120cf4ed9c3992268dfbd667dc10ce24ba3d6374c6d5eb9e0"
+  },
+  {
+    "path": "overlay/tests/fixtures/openclaw/dist/cli-session-history.claude-DKKUBp2r.mjs",
+    "sha256": "1c737e7eee7cbffc18e2a86bdcf71bbd4db5975ec7dfab8e23e4960dc9e5e412"
+  },
+  {
+    "path": "overlay/tests/fixtures/acpx/dist/config-D2FTk0K7.js",
+    "sha256": "b47261650dcce7fed60cc00e04e601f593e8bcc8f48a11ec8845e6f637d8c522"
+  },
+  {
+    "path": "overlay/tests/fixtures/adapter/dist/acp-agent.js",
+    "sha256": "f0cbbe408bb758cc4bacdae9a244bcac6efbdb6413f680195d017648abc6d816"
+  }
+]

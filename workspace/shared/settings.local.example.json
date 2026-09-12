@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "defaultMode": "auto",
+    "additionalDirectories": [
+      "__SHARED_WORKSPACE__"
+    ]
+  }
+}

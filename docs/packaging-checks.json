@@ -1,0 +1,28 @@
+{
+  "date": "2026-09-13",
+  "productionModified": false,
+  "remoteWrites": false,
+  "installedPayloadSnapshot": {
+    "matched": 17,
+    "total": 17
+  },
+  "checks": {
+    "overlayTempApplyBackupIdempotencyAndRejection": "PASS",
+    "presentationSyntheticTests": {
+      "passed": 3,
+      "failed": 0
+    },
+    "javascriptSyntaxFilesChecked": 34,
+    "memoryHelperSelfTest": "PASS, no workspace files created",
+    "memoryHelperMcpRoundtrip": "PASS: temporary synthetic workspace; discover/write/deduplicate/search/get/traversal rejection",
+    "helperDependencySource": "existing local SDK 1.29.0 / zod 4.4.3 via NODE_PATH, not a fresh dependency installation",
+    "gitignoreDeliverables": "PASS"
+  },
+  "notClaimed": [
+    "fresh Mac restore",
+    "new real Telegram E2E",
+    "Astra ACP behavior",
+    "latest upstream main reproduction",
+    "complete security isolation or exhaustive secret detection"
+  ]
+}

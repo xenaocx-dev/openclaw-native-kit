@@ -1,0 +1,25 @@
+{
+  "plugins": {
+    "load": {
+      "paths": [
+        "__KIT_DIR__/plugins/telegram-topic-mute"
+      ]
+    },
+    "entries": {
+      "telegram-topic-mute": {
+        "enabled": true,
+        "config": {
+          "rules": [
+            {
+              "channel": "telegram",
+              "accountId": "default",
+              "target": "__GROUP_ID__",
+              "threadId": "__MUTED_TOPIC_ID__",
+              "reason": "This topic is handled by another explicitly designated agent."
+            }
+          ]
+        }
+      }
+    }
+  }
+}

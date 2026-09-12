@@ -1,0 +1,44 @@
+{
+  "id": "telegram-topic-mute",
+  "name": "Telegram Topic Mute",
+  "description": "Suppress OpenClaw replies to configured Telegram group topics.",
+  "version": "0.1.0",
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "rules": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "channel": {
+              "type": "string"
+            },
+            "accountId": {
+              "type": "string"
+            },
+            "target": {
+              "type": "string"
+            },
+            "threadId": {
+              "type": "string"
+            },
+            "reason": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "channel",
+            "target",
+            "threadId"
+          ]
+        }
+      }
+    }
+  },
+  "activation": {
+    "onStartup": true
+  }
+}

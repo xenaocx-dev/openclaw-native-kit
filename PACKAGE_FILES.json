@@ -1,0 +1,308 @@
+{
+  "format": 1,
+  "created": "2026-09-13",
+  "revision": "r1",
+  "scope": "sanitized local review, no remote upload",
+  "files": [
+    {
+      "path": ".gitignore",
+      "bytes": 231,
+      "sha256": "138a4aec2c79b86bdb2d6d50d66fea2bf3902ddff6111f5b06f2f77f92c2bbe5"
+    },
+    {
+      "path": "README.md",
+      "bytes": 6787,
+      "sha256": "c782665f643e4cddfc5ad502ca406a453161f0b9de28b958dde1e60b5a59b5c8"
+    },
+    {
+      "path": "REVIEW.md",
+      "bytes": 2257,
+      "sha256": "f23fa9333a752f8e3039b59d53bfb0d4f0a9d1ba55976b28a7edfd2165d70857"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "bytes": 1252,
+      "sha256": "3e5ec33dcb28f65eb253148adc4523f8aa9ccfa1b2be07968d340a62571407a8"
+    },
+    {
+      "path": "UPSTREAM.md",
+      "bytes": 4744,
+      "sha256": "0b4941b73853d675e44386681481201153fe0a25dffe30974638708fc2f0d1c2"
+    },
+    {
+      "path": "config/openclaw.overlay.example.json",
+      "bytes": 4778,
+      "sha256": "8ee86487d7b9f128b801675d3d099d0bd7d6880bb4ae04dea5ac2b0454e62200"
+    },
+    {
+      "path": "config/telegram-topic.example.json",
+      "bytes": 379,
+      "sha256": "e7ff8800b48788b2c7a0757365f21abe4877e87f82ff8808e4d416f3752aed7b"
+    },
+    {
+      "path": "config/topic-mute.example.json",
+      "bytes": 548,
+      "sha256": "5684a29fc9cda0b8a21360fa1bf4c592a8b1272eaa47869be1998ef7eceb3746"
+    },
+    {
+      "path": "docs/config-contract.md",
+      "bytes": 5252,
+      "sha256": "ee3dba9328fe692a182a92690c7b8e149a7d75695aac93d4fb29a93eea1d0b86"
+    },
+    {
+      "path": "docs/packaging-checks.json",
+      "bytes": 916,
+      "sha256": "8a69540d70466bb6d05b4f893ae76e07954d662dd81a1b704e88ab7c39403479"
+    },
+    {
+      "path": "docs/review-fixes.md",
+      "bytes": 2485,
+      "sha256": "6b0be868e6db3f6cc9d88ff7c268335bbf71a6c2a00f6d6f1f7f6a4de90ba277"
+    },
+    {
+      "path": "docs/verification.md",
+      "bytes": 2083,
+      "sha256": "05000d73457065dfff26e225f194459b685fe957326a1152ce1120ad6baff997"
+    },
+    {
+      "path": "helpers/topic-memory-mcp.cjs",
+      "bytes": 12721,
+      "sha256": "7a87d20adb267b4cdfd3c2b3e999a4d14db0f1b1e728e8f1574ca2d192e6d06c"
+    },
+    {
+      "path": "helpers/topic-memory.test.cjs",
+      "bytes": 2100,
+      "sha256": "b58be50191a95a6576248501084fa2708cd439834af537b4deda4331342b228f"
+    },
+    {
+      "path": "licenses/claude-agent-acp-Apache-2.0.txt",
+      "bytes": 10783,
+      "sha256": "6ed4f049cce59e05197d585bdf8a39980b45d546d6ea718ee344555f3a867c3a"
+    },
+    {
+      "path": "licenses/openclaw-MIT.txt",
+      "bytes": 1170,
+      "sha256": "73571b25326281d369087f469842c02444fe39faaecebda4d82ed21ff3a1c29d"
+    },
+    {
+      "path": "overlay/README.md",
+      "bytes": 1590,
+      "sha256": "4b37ed18be33162e4c36cb7b6fc6150b9f199965fc6bdb65cd00f44292ef3ff2"
+    },
+    {
+      "path": "overlay/manifest.json",
+      "bytes": 5984,
+      "sha256": "fe3fdc47f932fff96dff419ca09b1a598d746beba3065a914d90125749b7c505"
+    },
+    {
+      "path": "overlay/overlay.mjs",
+      "bytes": 8445,
+      "sha256": "b78e3a3ba2f3f28c84754959dfea3270215395aa52710034e0c21d1425289261"
+    },
+    {
+      "path": "overlay/payload/acpx/dist/config-D2FTk0K7.js",
+      "bytes": 6849,
+      "sha256": "7017a829a1743da7f848d012970f9f98c8b2d65076ef51c80cf842f3ae815251"
+    },
+    {
+      "path": "overlay/payload/claude-agent-acp/dist/acp-agent.js",
+      "bytes": 405584,
+      "sha256": "bc48b4c55650c4b35a90d939f9022809b024bbcdb23448552cf759bd13a20614"
+    },
+    {
+      "path": "overlay/payload/claude-agent-acp/dist/openclaw-acp-compat-v1.mjs",
+      "bytes": 4966,
+      "sha256": "b3506601b032820df22a47cb58a87e89120ae1774f7597c57f278490d7bbc937"
+    },
+    {
+      "path": "overlay/payload/openclaw/dist/acp-stateful-target-driver-Cg4nyOQP.mjs",
+      "bytes": 5002,
+      "sha256": "f1634a097d30b73d5cc9b54f2f089efe366d491a6e1406d0bb60141f7c86959f"
+    },
+    {
+      "path": "overlay/payload/openclaw/dist/acpx-BDOdDqge.mjs",
+      "bytes": 2963,
+      "sha256": "2071225026a843cabea3a4c6363937d6593469d29d18485c92731240a754831e"
+    },
+    {
+      "path": "overlay/payload/openclaw/dist/bot-message-nRw-6GtF.mjs",
+      "bytes": 207305,
+      "sha256": "1e354a3f41ac59619e6b6fa50c819373ce86a280578405d33ab9e00e5590a47a"
+    },
+    {
+      "path": "overlay/payload/openclaw/dist/claude-cli-project-dir-D0ArKrOI.mjs",
+      "bytes": 1842,
+      "sha256": "6a9008eb140146c04e3fe33b341d07d2b1e31c2b157414a2500ab43c5f374df3"
+    },
+    {
+      "path": "overlay/payload/openclaw/dist/cli-session-history.claude-DKKUBp2r.mjs",
+      "bytes": 16178,
+      "sha256": "811edc264c775f3274e46876a55922b64084a9aba41b21654d7423eadad3bf51"
+    },
+    {
+      "path": "overlay/payload/openclaw/dist/dispatch-acp-txw_fKCF.mjs",
+      "bytes": 67079,
+      "sha256": "132dd586abc80fc1325e7d68b2fef5f19ac0cce9db4e6bc26ffd10023dac7d6b"
+    },
+    {
+      "path": "overlay/payload/openclaw/dist/dispatch-from-config-CmAXENud.mjs",
+      "bytes": 173622,
+      "sha256": "aa76e1fcae2f7a45327d8f960b9699618ef3db23e783e46039a76599b68796bf"
+    },
+    {
+      "path": "overlay/payload/openclaw/dist/openclaw-acp-reasoning-channel-v311.mjs",
+      "bytes": 6908,
+      "sha256": "5bc058b92befa484fe84499a06f6f4f1d531c32cfc8f272e5c68fea199b0064a"
+    },
+    {
+      "path": "overlay/payload/openclaw/dist/openclaw-acp-reasoning-forwarder-v311.mjs",
+      "bytes": 2363,
+      "sha256": "6f540835cab0deca09e94d29e9ebcdbb61dbfb9d835569e05ff98b9b5cba17b6"
+    },
+    {
+      "path": "overlay/payload/openclaw/dist/openclaw-acp-reasoning-presentation-v38.mjs",
+      "bytes": 6402,
+      "sha256": "2c8e94142324b4ec044b00a5cbb78a38eeb931b8fe37ee42242bed5fac8d8794"
+    },
+    {
+      "path": "overlay/payload/openclaw/dist/openclaw-acp-reasoning-terminal-v38.mjs",
+      "bytes": 16717,
+      "sha256": "3a5cc6090f2d37943103f40bbf7ad4c6159a8fd21f735699499c4c4e7ae61406"
+    },
+    {
+      "path": "overlay/payload/openclaw/dist/session-meta-a5vM4NJL.mjs",
+      "bytes": 17316,
+      "sha256": "a79f269cbbd45df295db1fb41e73eeb679d206fdcb7597b5aff360d1cf375479"
+    },
+    {
+      "path": "overlay/payload/openclaw/dist/session-reset-service-CAUbxbvS.mjs",
+      "bytes": 53446,
+      "sha256": "d17d150d23a2ed3a322322bea763b7031e0bb3e9edbc96c099426cca729028bf"
+    },
+    {
+      "path": "overlay/payload/state/bin/openclaw-acp-reasoning-cn.mjs",
+      "bytes": 37604,
+      "sha256": "618a8771371fdfa337011480e633dcbc43da1e6bc1972b12ca1d3ebc4e10b393"
+    },
+    {
+      "path": "overlay/tests/fixtures/acpx/dist/config-D2FTk0K7.js",
+      "bytes": 6833,
+      "sha256": "b47261650dcce7fed60cc00e04e601f593e8bcc8f48a11ec8845e6f637d8c522"
+    },
+    {
+      "path": "overlay/tests/fixtures/adapter/dist/acp-agent.js",
+      "bytes": 400716,
+      "sha256": "f0cbbe408bb758cc4bacdae9a244bcac6efbdb6413f680195d017648abc6d816"
+    },
+    {
+      "path": "overlay/tests/fixtures/openclaw/dist/acp-stateful-target-driver-Cg4nyOQP.mjs",
+      "bytes": 3784,
+      "sha256": "b1343defa42b9ab296c6a69c1eae1507bb53c65988aa33761ee21367dc3f0d38"
+    },
+    {
+      "path": "overlay/tests/fixtures/openclaw/dist/acpx-BDOdDqge.mjs",
+      "bytes": 2781,
+      "sha256": "e8f5eaba09f120b5ca2cccf1bacdbfbf2268293f4e622a1d4fb057cbb2be2f04"
+    },
+    {
+      "path": "overlay/tests/fixtures/openclaw/dist/bot-message-nRw-6GtF.mjs",
+      "bytes": 204664,
+      "sha256": "e30343a2f46cf9204c91202b866161c02d8af6389edf5e333477c2a7f7de8d0a"
+    },
+    {
+      "path": "overlay/tests/fixtures/openclaw/dist/claude-cli-project-dir-D0ArKrOI.mjs",
+      "bytes": 1551,
+      "sha256": "158b78599ce6cf3120cf4ed9c3992268dfbd667dc10ce24ba3d6374c6d5eb9e0"
+    },
+    {
+      "path": "overlay/tests/fixtures/openclaw/dist/cli-session-history.claude-DKKUBp2r.mjs",
+      "bytes": 15805,
+      "sha256": "1c737e7eee7cbffc18e2a86bdcf71bbd4db5975ec7dfab8e23e4960dc9e5e412"
+    },
+    {
+      "path": "overlay/tests/fixtures/openclaw/dist/dispatch-acp-txw_fKCF.mjs",
+      "bytes": 66109,
+      "sha256": "5235019300070eb107f6a62d76c194602abb2182c183b918fa634c8e7c3d282c"
+    },
+    {
+      "path": "overlay/tests/fixtures/openclaw/dist/dispatch-from-config-CmAXENud.mjs",
+      "bytes": 171583,
+      "sha256": "83fa38143291448ea814c76a62971adb44f6f0b7e1aa09efd7ec53bb383910e7"
+    },
+    {
+      "path": "overlay/tests/fixtures/openclaw/dist/session-meta-a5vM4NJL.mjs",
+      "bytes": 16850,
+      "sha256": "9108b2bed89f61a7926501b03ac33986721a5a2a5e10b1af319d37a833f5472d"
+    },
+    {
+      "path": "overlay/tests/fixtures/openclaw/dist/session-reset-service-CAUbxbvS.mjs",
+      "bytes": 53294,
+      "sha256": "0db92ce4e241c6ba3ab8333fa1a50486ae1ccc420ecf9f1796016373d06691e5"
+    },
+    {
+      "path": "overlay/tests/fixtures.json",
+      "bytes": 1872,
+      "sha256": "1b1d1c728555fff2acf04583e83f1087d0459fd3ea9440f4067545ea58e571a1"
+    },
+    {
+      "path": "overlay/tests/overlay.test.mjs",
+      "bytes": 4999,
+      "sha256": "14c11aa8b4b8f5bda921405973eeccf8fb17ed0fc696c8434a0bdc21b7c6150f"
+    },
+    {
+      "path": "overlay/tests/presentation.test.mjs",
+      "bytes": 2561,
+      "sha256": "042cb89ed5643103c40891a20fd8eacd5b3ae9b218ec8b2d934055f5a407c9e1"
+    },
+    {
+      "path": "package.json",
+      "bytes": 417,
+      "sha256": "b96121ee6b0f1f911c460f17731c8442dcb3876b36eb732e76a4f84f3e831c15"
+    },
+    {
+      "path": "plugins/telegram-topic-mute/index.js",
+      "bytes": 3145,
+      "sha256": "23810dcdea3eca2741a70adbceecde2a15eeaeef59edd8bdefb4d6728b08d166"
+    },
+    {
+      "path": "plugins/telegram-topic-mute/openclaw.plugin.json",
+      "bytes": 971,
+      "sha256": "c7a28d1ecbd484cbadb9968579fba1d25be29af7d8cb74749147a15f27b95107"
+    },
+    {
+      "path": "scripts/check-package.mjs",
+      "bytes": 2201,
+      "sha256": "1946336bb7bfdc441bcca1221799476714e7c029eef0b7c606d6a3a0b210ecc4"
+    },
+    {
+      "path": "skills/acp-topic-setup/SKILL.md",
+      "bytes": 2869,
+      "sha256": "607ffe6559f26247628338a4846ed733377c6aacb6cb609da1a72925c76e8951"
+    },
+    {
+      "path": "workspace/isolated/CLAUDE.md",
+      "bytes": 1153,
+      "sha256": "0da3ec5a4c3bc09a8bc2437618836dd61e5cc4ae0f1bf481ae51afcad8cd6821"
+    },
+    {
+      "path": "workspace/isolated/mcp.example.json",
+      "bytes": 373,
+      "sha256": "35a21bd9d8e4355970c9581da244d4cfee3b46d081b8674bba113eb120e644ef"
+    },
+    {
+      "path": "workspace/isolated/settings.local.example.json",
+      "bytes": 106,
+      "sha256": "fb087c6b2d5536092c10ac305d4245b61f2ec08240f64e364ba391a3720e41c6"
+    },
+    {
+      "path": "workspace/shared/CLAUDE.md",
+      "bytes": 1336,
+      "sha256": "97bbf8a21c824e88c3cc591415e85a5e69913ba9a7b79a25794f4031fc2307fc"
+    },
+    {
+      "path": "workspace/shared/settings.local.example.json",
+      "bytes": 120,
+      "sha256": "c70ad150918a3e61f904ff96626d5728e0fbc4802d572dcebfe8aa2708d7a594"
+    }
+  ]
+}

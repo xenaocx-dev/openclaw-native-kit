@@ -1,0 +1,188 @@
+{
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "anthropic/claude-fable-5-1",
+        "fallbacks": [
+          "openai/gpt-6-astra",
+          "anthropic/claude-opus-5",
+          "openai/gpt-5.6-sol"
+        ]
+      },
+      "thinkingDefault": "high",
+      "models": {
+        "anthropic/claude-fable-5-1": {
+          "agentRuntime": {
+            "id": "claude-cli"
+          }
+        },
+        "openai/gpt-6-astra": {
+          "agentRuntime": {
+            "id": "codex"
+          }
+        },
+        "anthropic/claude-opus-5": {
+          "agentRuntime": {
+            "id": "claude-cli"
+          }
+        },
+        "openai/gpt-5.6-sol": {
+          "agentRuntime": {
+            "id": "codex"
+          }
+        }
+      }
+    },
+    "entries": {
+      "main": {
+        "workspace": "__SHARED_WORKSPACE__",
+        "agentDir": "__STATE_DIR__/agents/main/agent"
+      },
+      "shared-acp": {
+        "workspace": "__SHARED_WORKSPACE__",
+        "agentDir": "__STATE_DIR__/agents/shared-acp/agent",
+        "model": "anthropic/claude-fable-5-1",
+        "thinkingDefault": "high",
+        "reasoningDefault": "stream",
+        "runtime": {
+          "type": "acp",
+          "acp": {
+            "backend": "acpx",
+            "agent": "shared-acp",
+            "mode": "persistent",
+            "cwd": "__SHARED_WORKSPACE__/acp-topics"
+          }
+        }
+      },
+      "isolated-acp": {
+        "workspace": "__ISOLATED_WORKSPACE__",
+        "agentDir": "__STATE_DIR__/agents/isolated-acp/agent",
+        "model": "anthropic/claude-fable-5-1",
+        "thinkingDefault": "high",
+        "reasoningDefault": "stream",
+        "runtime": {
+          "type": "acp",
+          "acp": {
+            "backend": "acpx",
+            "agent": "isolated-acp",
+            "mode": "persistent",
+            "cwd": "__ISOLATED_WORKSPACE__"
+          }
+        }
+      }
+    }
+  },
+  "acp": {
+    "enabled": true,
+    "dispatch": {
+      "enabled": true
+    },
+    "backend": "acpx",
+    "defaultAgent": "shared-acp",
+    "allowedAgents": [
+      "shared-acp",
+      "isolated-acp"
+    ],
+    "stream": {
+      "tagVisibility": {
+        "agent_thought_chunk": true
+      }
+    }
+  },
+  "plugins": {
+    "entries": {
+      "acpx": {
+        "enabled": true,
+        "config": {
+          "timeoutSeconds": 3600,
+          "probeAgent": "shared-acp",
+          "agents": {
+            "shared-acp": {
+              "command": "/usr/bin/env",
+              "args": [
+                "OPENCLAW_ACP_NATIVE_PERMISSION_FORM=1",
+                "OPENCLAW_ACP_REASONING_DISPLAY=summarized",
+                "ANTHROPIC_MODEL=claude-fable-5-1",
+                "ANTHROPIC_CUSTOM_MODEL_OPTION=claude-fable-5-1",
+                "CLAUDE_CODE_EXECUTABLE=__CLAUDE_EXECUTABLE__",
+                "__NODE24__",
+                "__CLAUDE_ADAPTER_BIN__"
+              ]
+            },
+            "isolated-acp": {
+              "command": "/usr/bin/env",
+              "args": [
+                "OPENCLAW_ACP_NATIVE_PERMISSION_FORM=1",
+                "OPENCLAW_ACP_REASONING_DISPLAY=summarized",
+                "ANTHROPIC_MODEL=claude-fable-5-1",
+                "ANTHROPIC_CUSTOM_MODEL_OPTION=claude-fable-5-1",
+                "CLAUDE_CODE_EXECUTABLE=__CLAUDE_EXECUTABLE__",
+                "__NODE24__",
+                "__CLAUDE_ADAPTER_BIN__"
+              ]
+            }
+          },
+          "stateDir": "__STATE_DIR__/acpx-backend",
+          "pluginToolsMcpBridge": true
+        }
+      },
+      "memory-core": {
+        "enabled": true,
+        "config": {
+          "dreaming": {
+            "enabled": false
+          }
+        }
+      }
+    }
+  },
+  "memory": {
+    "search": {
+      "fallback": "none",
+      "provider": "openai-compatible",
+      "model": "bge-m3",
+      "remote": {
+        "baseUrl": "http://127.0.0.1:11434/v1",
+        "apiKey": "ollama"
+      }
+    }
+  },
+  "bindings": [
+    {
+      "type": "acp",
+      "agentId": "shared-acp",
+      "match": {
+        "channel": "telegram",
+        "accountId": "default",
+        "peer": {
+          "kind": "group",
+          "id": "__GROUP_ID__:topic:__SHARED_TOPIC_ID__"
+        }
+      },
+      "acp": {
+        "label": "shared-acp",
+        "mode": "persistent",
+        "cwd": "__SHARED_WORKSPACE__/acp-topics",
+        "backend": "acpx"
+      }
+    },
+    {
+      "type": "acp",
+      "agentId": "isolated-acp",
+      "match": {
+        "channel": "telegram",
+        "accountId": "default",
+        "peer": {
+          "kind": "group",
+          "id": "__GROUP_ID__:topic:__ISOLATED_TOPIC_ID__"
+        }
+      },
+      "acp": {
+        "label": "isolated-acp",
+        "mode": "persistent",
+        "cwd": "__ISOLATED_WORKSPACE__",
+        "backend": "acpx"
+      }
+    }
+  ]
+}
