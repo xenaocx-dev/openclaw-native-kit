@@ -2,7 +2,7 @@
   "format": 1,
   "created": "2026-09-18",
   "revision": "r3-candidate",
-  "scope": "reviewed r3 candidate for private Git archive; no production deployment, tag or Release",
+  "scope": "reviewed r3 private prerelease v2026.9.4-r3; not deployed to production",
   "files": [
     {
       "path": ".gitignore",
@@ -11,8 +11,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 7499,
-      "sha256": "c88582590732dfbb24efcbd8b3ac5f97798db80b8269f54ae0e954e1603ae34b"
+      "bytes": 7633,
+      "sha256": "58d89e24629e40231dbe5f17010c3ab7ab8de08d1ac626cfa02b964ebb13bcc8"
     },
     {
       "path": "REVIEW.md",
@@ -76,8 +76,8 @@
     },
     {
       "path": "docs/release-r3.md",
-      "bytes": 3313,
-      "sha256": "a81544699dad390d9d7ea4dd1849eb4a8e9a47cf02c9b8870a0178156bf790a5"
+      "bytes": 3336,
+      "sha256": "72bb34c86492f612fec532f3a3f218cf218537b733fdd47b8309c6ea6877f18a"
     },
     {
       "path": "docs/review-fixes.md",
