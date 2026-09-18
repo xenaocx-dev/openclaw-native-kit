@@ -2,7 +2,7 @@
   "format": 1,
   "created": "2026-09-18",
   "revision": "r2-candidate",
-  "scope": "sanitized local release candidate; no remote upload",
+  "scope": "sanitized reviewed local release candidate; no remote upload",
   "files": [
     {
       "path": ".gitignore",
@@ -11,8 +11,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 7397,
-      "sha256": "4f38861e71d27787f65f86cc60af734a5e02837860d0335bf24b2cac9bc9602e"
+      "bytes": 7539,
+      "sha256": "c814b96f0c9b938fe590a41dbc690f66d434003ea21f286c8fc613c36ad80637"
     },
     {
       "path": "REVIEW.md",
@@ -26,8 +26,8 @@
     },
     {
       "path": "UPSTREAM.md",
-      "bytes": 4744,
-      "sha256": "0b4941b73853d675e44386681481201153fe0a25dffe30974638708fc2f0d1c2"
+      "bytes": 5618,
+      "sha256": "d87aca17f34d7c35ef36907d97c04067435ecf12ae79669c8df9358f19d82028"
     },
     {
       "path": "config/openclaw.overlay.example.json",
@@ -52,7 +52,7 @@
     {
       "path": "docs/config-contract.md",
       "bytes": 5252,
-      "sha256": "ee3dba9328fe692a182a92690c7b8e149a7d75695aac93d4fb29a93eea1d0b86"
+      "sha256": "a9bff660ee5f7c3669901be4c842862069691aa2ed1cce4a75b8a6443b8d066f"
     },
     {
       "path": "docs/packaging-checks-r1.json",
@@ -61,13 +61,13 @@
     },
     {
       "path": "docs/packaging-checks.json",
-      "bytes": 1353,
-      "sha256": "59e372e4e7751d7d3f7b74cc8d499b5adf86186f1e8bdc2e27a7cd9a071344de"
+      "bytes": 1391,
+      "sha256": "99cc0093193457318a796150527d62b458fe0fc32ee7ea98be36fb1fe0ba0167"
     },
     {
       "path": "docs/release-r2.md",
-      "bytes": 2664,
-      "sha256": "5bc9b7ac6cebb738d2becfbca4abbd24d2806c96ec7f8a4dc0b4ebe7bf38b12e"
+      "bytes": 3724,
+      "sha256": "aae0b9401f8d9cd7ef627a375b2f00ffc803c87952eaa5e05fda40fb80ea8a27"
     },
     {
       "path": "docs/review-fixes.md",
@@ -75,9 +75,14 @@
       "sha256": "6b0be868e6db3f6cc9d88ff7c268335bbf71a6c2a00f6d6f1f7f6a4de90ba277"
     },
     {
+      "path": "docs/review-r2.md",
+      "bytes": 1892,
+      "sha256": "a086f2475c1215eedc6a0baf8fbd94d5fdb099bce8c6910f9327a6b9775fd967"
+    },
+    {
       "path": "docs/verification.md",
-      "bytes": 3427,
-      "sha256": "e42bc5970642e56520c7a2c01d877f25f7213ef59609c945190d9979bef57891"
+      "bytes": 3696,
+      "sha256": "5c3866104f329f949ad1fe9d4a296145a823424ccd5525d7e17154c794e8f026"
     },
     {
       "path": "helpers/topic-memory-mcp.cjs",

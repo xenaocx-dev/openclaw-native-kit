@@ -9,7 +9,7 @@ verify/apply 均输出 `roots` 四个解析后的绝对路径。它们只说明�
 - `roots.state` 必须与 Gateway 的 `OPENCLAW_STATE_DIR` 一致（未覆盖时通常为 `~/.openclaw`）。apply 将 translator 写到该目录的 `bin/openclaw-acp-reasoning-cn.mjs`，权限 0700。
 - ACPX 的 peer 解析必须指向同一 `roots.openclaw`。官方插件安装通常提供 peer 依赖关系；复制包或单独 npm 安装不保证这一布局。
 
-填入根目录后，用 Node 24 运行以下只读核对。这与补丁的解析方式相同；找不到包或指向其他副本均失败。overlay 的 17 项 installed 本身不检查 peer 关系。
+填入根目录后，用 Node 24 运行以下只读核对。这与补丁的解析方式相同；找不到包或指向其他副本均失败。overlay 的 20 项 installed 本身不检查 peer 关系。
 
 ```sh
 OC_ACPX_ROOT=/path/to/node_modules/@openclaw/acpx \
@@ -66,4 +66,4 @@ JS
 
 静默插件与预览层依赖 `telegram-topic-mute` / `telegram-topic-mute:route-only:v1` 的固定标识；改名可能令预览退回上游限制。ACP hook 未正常完成时会显示中文错误通知并阻止普通模型重做；这不等于普通模型的 fallback。
 
-本次保留 memory helper 的 `bnb-memory:` 去重标记和 Singapore 日期格式，以免已有记忆去重及日文件分界改变；它们不是用户身份或秘密。该副本目前是可移植的原试点实现，未承诺通用时区。需要公开通用化时单独做兼容迁移。payload 中旧版本注释和未使用的辅助函数也留到下次源码重建，不为注释改动打破当前 17 项 hash 对照。
+本次保留 memory helper 的 `bnb-memory:` 去重标记和 Singapore 日期格式，以免已有记忆去重及日文件分界改变；它们不是用户身份或秘密。该副本目前是可移植的原试点实现，未承诺通用时区。需要公开通用化时单独做兼容迁移。payload 中旧版本注释和未使用的辅助函数也留到下次源码重建，不为注释改动打破当前 20 项 hash 对照。

@@ -22,7 +22,7 @@
     "authoritativeAdoptionAndHookForwarding": "PASS: extracted callbacks, not complete dispatcher E2E",
     "ingressWatchdogSynthetic": "PASS: existing full 9.4 dependencies, candidate ingress and reasoning matcher, in-memory queue; no Telegram/model calls",
     "javascriptSyntaxFilesChecked": 46,
-    "packageInventoryHashJsonAndBasicCredentialScan": "PASS: 74 files, 20 payloads",
+    "packageInventoryHashJsonAndBasicCredentialScan": "PASS: 75 files, 20 payloads (post-review documentation follow-up)",
     "gitDiffWhitespace": "PASS"
   },
   "historicalChecks": "docs/packaging-checks-r1.json; unchanged helper not rerun",

@@ -3,6 +3,7 @@
 ## 本包新增或调整
 
 - r2 从已部署维护版同步 6 个文件变化（3 更新、3 新目标），其余 14 个 payload 不变；安装器及 version/hash 拒绝逻辑不改。
+- 接管回调成功也会提交 dispatcher 的已接管状态，改变后续失败的 dedupe 处理，避免释放并重放已接手消息。回调抛错仍有已知窗口，见 `docs/release-r2.md`；现有抛错断言记录当前行为，不证明此路径安全。
 - 测试的源文件从本机安装依赖换为包内固定 fixture，并补未知版本/改动拒绝检查。
 - 复用原有 presentation 测试，仅改 import 路径。
 - memory helper 依赖从旧全局安装绝对路径换为包依赖；workspace/source 必须显式提供。不改变生产 helper。

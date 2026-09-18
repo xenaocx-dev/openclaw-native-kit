@@ -1,6 +1,6 @@
 # OpenClaw native kit — 2026.9.4 r2 候选
 
-2026-09-18。面向已经安装 OpenClaw、希望通过 ACP 使用 Claude Code 原生 harness 的用户，可由 Codex / Claude Code 协助配置。r1 已归档到 private GitHub；当前 r2 是待评审的本地候选，尚未上传、打 tag 或发布 Release。它增强 OpenClaw 内的原生执行、中文 reasoning 展示与工具接入，不提供 Claude Desktop 的完整界面。
+2026-09-18。面向已经安装 OpenClaw、希望通过 ACP 使用 Claude Code 原生 harness 的用户，可由 Codex / Claude Code 协助配置。r1 已归档到 private GitHub；当前 r2 已完成增量评审，尚未上传、打 tag 或发布 Release。评审允许 private 更新，并记录一个后续处理的接管通知失败 P1，见 `docs/release-r2.md`。它增强 OpenClaw 内的原生执行、中文 reasoning 展示与工具接入，不提供 Claude Desktop 的完整界面。
 
 安装入口见 [给安装 Agent 的任务](docs/agent-install.md)，本次变化见 [r2 候选说明](docs/release-r2.md)。
 
@@ -64,4 +64,4 @@ npm test
 
 首次 review 建议 **Fable 5.1 high**，打包整理及常规后续使用 **GPT‑5.6 medium**。优先修阻碍上传或复现的问题；不要为了本包新增框架、CI 矩阵、后台服务或全量重建器。
 
-r1 已完成首次 Fable 5.1 review；历史修订回执见 `docs/review-fixes.md`。r2 按 `REVIEW.md` 做增量评审后再上传。公开发布前还需明确自有代码许可证；第三方文件保留原许可证，见 `THIRD_PARTY_NOTICES.md`。不得将本地认证/状态备份提交到此目录。现有包没有手动回滚命令；apply 会生成备份和 journal，恢复前须停稳对应目标并据 journal 恢复，不能恢复整台机器的旧状态。
+r1 已完成首次 Fable 5.1 review；历史修订回执见 `docs/review-fixes.md`。r2 增量评审回执见 `docs/review-r2.md`，任务说明仍保留在 `REVIEW.md`。公开发布前还需明确自有代码许可证；第三方文件保留原许可证，见 `THIRD_PARTY_NOTICES.md`。不得将本地认证/状态备份提交到此目录。现有包没有手动回滚命令；apply 会生成备份和 journal，恢复前须停稳对应目标并据 journal 恢复，不能恢复整台机器的旧状态。
