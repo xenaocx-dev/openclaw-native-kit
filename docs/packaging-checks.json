@@ -1,37 +1,46 @@
 {
   "date": "2026-09-18",
-  "revision": "r2-candidate",
+  "revision": "r3-candidate",
   "productionModified": false,
   "remoteWrites": false,
   "installedPayloadSnapshot": {
-    "matched": 20,
+    "matched": 18,
+    "readyReplace": 2,
     "total": 20,
-    "scope": "read-only installed file hashes, not current process state or E2E"
+    "scope": "read-only verify; candidate not deployed"
   },
   "checks": {
     "stockOverlayInstall": "PASS: 20 targets",
-    "r1Upgrade": "PASS: exactly 6 replacements, original-byte backups, repeat apply changes zero",
+    "r1Upgrade": "PASS: 6 replacements, byte backups, idempotency",
+    "r2Upgrade": "PASS: 2 replacements, byte backups, idempotency",
     "versionAndUnknownDriftRejection": "PASS",
     "fixtureHashes": {
-      "passed": 17
+      "passed": 19
     },
     "presentationSyntheticTests": {
       "passed": 3,
       "failed": 0
     },
-    "authoritativeAdoptionAndHookForwarding": "PASS: extracted callbacks, not complete dispatcher E2E",
-    "ingressWatchdogSynthetic": "PASS: existing full 9.4 dependencies, candidate ingress and reasoning matcher, in-memory queue; no Telegram/model calls",
-    "javascriptSyntaxFilesChecked": 46,
-    "packageInventoryHashJsonAndBasicCredentialScan": "PASS: 75 files, 20 payloads (post-review documentation follow-up)",
-    "gitDiffWhitespace": "PASS"
+    "authoritativeAdoptionAndHookForwarding": "PASS",
+    "adoptionFailureTests": {
+      "passed": 8,
+      "failed": 0,
+      "scope": "real extracted functions, fake native turn and persistence, not complete Gateway E2E"
+    },
+    "r2NegativeControl": {
+      "expectedFailures": 6,
+      "normalControlsPassed": 2
+    },
+    "javascriptSyntaxFilesChecked": 49
   },
-  "historicalChecks": "docs/packaging-checks-r1.json; unchanged helper not rerun",
+  "historicalChecks": "r1/r2 receipts retained; unchanged optional ingress/full-package and helper tests not repeated",
   "notClaimed": [
-    "fresh Mac restore",
-    "new real Telegram E2E",
+    "production deployment",
+    "real native cancellation or Telegram E2E",
+    "full dispatcher E2E",
+    "cross-crash exactly-once",
+    "recovery from persistent disk failure",
     "Astra ACP behavior",
-    "complete dispatcher E2E rerun",
-    "latest upstream main reproduction",
-    "complete security isolation or exhaustive secret detection"
+    "latest upstream reproduction"
   ]
 }

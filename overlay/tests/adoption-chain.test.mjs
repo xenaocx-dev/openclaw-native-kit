@@ -16,7 +16,7 @@ const acpx = fs.readFileSync(path.join(STAGED_DIST, "acpx-BDOdDqge.mjs"), "utf8"
 const dispatchAcp = fs.readFileSync(path.join(STAGED_DIST, "dispatch-acp-txw_fKCF.mjs"), "utf8");
 const manager = fs.readFileSync(path.join(STAGED_DIST, "manager-DTkVUGeR.mjs"), "utf8");
 
-assert.equal(count(dispatch, "onTurnAdopted: params.replyOptions?.turnAdoptionLifecycle?.onAdopted"), 1);
+assert.equal(count(dispatch, "onTurnAdopted: async () => {"), 1);
 assert.equal(count(acpx, "onTurnAdopted: ctx.onTurnAdopted"), 1);
 assert.equal(count(dispatchAcp, "onTurnAdopted: params.onTurnAdopted"), 1);
 assert.equal(count(manager, "if (authoritative) await input.onTurnAdopted?.();"), 1);

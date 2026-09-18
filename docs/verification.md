@@ -1,6 +1,14 @@
 # 验证范围
 
-## 本包新增或调整
+## r3 当前候选
+
+r3 只修改 manager 和 dispatcher 两个已有 payload，针对接管回调异常进行取消/收尾与去重保护。详见 `docs/release-r3.md`；其余 r2 payload、安装器和配置不变。
+
+默认 `npm test` 增加 8 项异常模拟和 r2 → r3 两文件升级验证。新用例执行真实代码片段，使用假的原生 turn、内存队列及去重存储；不是完整 Gateway E2E。持久化重试只移除了等待，次数及失败分支不改。相同用例对未修改 r2 为 6 失败 / 2 通过，对候选为 8 通过。
+
+当前生产只读 verify 为 18 installed、2 ready-replace；不能再将 r2 的 20/20 installed 历史结果用于证明 r3 已部署。当前记录在 `docs/packaging-checks.json`，r2 记录保存在 `docs/packaging-checks-r2.json`。
+
+## r2 历史新增或调整
 
 - r2 从已部署维护版同步 6 个文件变化（3 更新、3 新目标），其余 14 个 payload 不变；安装器及 version/hash 拒绝逻辑不改。
 - 接管回调成功也会提交 dispatcher 的已接管状态，改变后续失败的 dedupe 处理，避免释放并重放已接手消息。回调抛错仍有已知窗口，见 `docs/release-r2.md`；现有抛错断言记录当前行为，不证明此路径安全。
@@ -21,7 +29,7 @@ OPENCLAW_TEST_ROOT=/path/to/node_modules/openclaw npm run test:ingress
 
 该测试从指定包只读加载 ingress 的依赖，通过加载钩子替换成候选 ingress payload，以内存队列模拟接管和超时；reasoning matcher 从候选 payload 加载。无需安装插件、启动 Gateway、写生产 state、访问 Telegram 或调用模型。环境变量必须指向精确版本；不要为此额外重建一台机器。
 
-本轮结果见 `docs/packaging-checks.json`；r1 历史记录见 `docs/packaging-checks-r1.json`。对生产执行的 overlay verify 仅证明磁盘文件 20/20 相同，不证明当前进程加载状态；没有把旧自然使用证据表述为本轮重跑 E2E。
+r2 结果见 `docs/packaging-checks-r2.json`；r1 历史记录见 `docs/packaging-checks-r1.json`。当时对生产执行的 overlay verify 仅证明 r2 磁盘文件 20/20 相同，不证明当前进程加载状态；没有把旧自然使用证据表述为本轮重跑 E2E。
 
 ## 已有运行证据与保留缺口
 

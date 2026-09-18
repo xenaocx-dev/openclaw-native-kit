@@ -1,8 +1,8 @@
 {
   "format": 1,
   "created": "2026-09-18",
-  "revision": "r2-candidate",
-  "scope": "sanitized reviewed r2 candidate for private Git archive; no tag or Release",
+  "revision": "r3-candidate",
+  "scope": "local unreviewed candidate; no production deployment or remote upload",
   "files": [
     {
       "path": ".gitignore",
@@ -11,13 +11,13 @@
     },
     {
       "path": "README.md",
-      "bytes": 7569,
-      "sha256": "1de36461582bce9d285b859bc54bc78441c36d720b0aa1e8e584588319fd2e5b"
+      "bytes": 7459,
+      "sha256": "455138db9c4bf0b11a7eaab4e616cfc3526678ab64b0ccf2c30e8bf8b5883ef8"
     },
     {
       "path": "REVIEW.md",
-      "bytes": 2805,
-      "sha256": "e5aaa35d347b0d7c70e668490d5f2dbd9f704b64fb775e649a66cf92c39b0f82"
+      "bytes": 2249,
+      "sha256": "647ec377182074610ce7c69368346515f87bf7fdf67bb71eece48152d28f2dae"
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
@@ -60,14 +60,24 @@
       "sha256": "8a69540d70466bb6d05b4f893ae76e07954d662dd81a1b704e88ab7c39403479"
     },
     {
-      "path": "docs/packaging-checks.json",
+      "path": "docs/packaging-checks-r2.json",
       "bytes": 1391,
       "sha256": "99cc0093193457318a796150527d62b458fe0fc32ee7ea98be36fb1fe0ba0167"
+    },
+    {
+      "path": "docs/packaging-checks.json",
+      "bytes": 1393,
+      "sha256": "844dd627d72d90b7c73efa00786607bf42af484892f8a66c5a0f0751dee12de1"
     },
     {
       "path": "docs/release-r2.md",
       "bytes": 3747,
       "sha256": "5d50fe6cd81ab78c308cfed3e963fa81ffc6eacabd3b3e2ec125939ca232afe2"
+    },
+    {
+      "path": "docs/release-r3.md",
+      "bytes": 2937,
+      "sha256": "656fccdef18874fff81306448b24bd027b0934a853b020826fc989f4ec687f9a"
     },
     {
       "path": "docs/review-fixes.md",
@@ -81,8 +91,8 @@
     },
     {
       "path": "docs/verification.md",
-      "bytes": 3696,
-      "sha256": "5c3866104f329f949ad1fe9d4a296145a823424ccd5525d7e17154c794e8f026"
+      "bytes": 4514,
+      "sha256": "1d48b1dc1d6dd7149b9b00544ef53f0da0ecf9f733af95fc35a72fc1c7a1c715"
     },
     {
       "path": "helpers/topic-memory-mcp.cjs",
@@ -106,13 +116,13 @@
     },
     {
       "path": "overlay/README.md",
-      "bytes": 1999,
-      "sha256": "cb4364e083704d5113ad688c5a142c8c9a5ea3227a74e91c5750f49a4543ac5d"
+      "bytes": 2146,
+      "sha256": "96a3020bd401ad2abb6393becb0870510eb9fb0df8ae44ae942e734f8aae8466"
     },
     {
       "path": "overlay/manifest.json",
-      "bytes": 7239,
-      "sha256": "73af56acb648e70d44f5afb4f4ebe4a0bb838f06306e5a6bb43de23c5a20a5d6"
+      "bytes": 7391,
+      "sha256": "64391e430f007181475dd810d19442ccabc541a581e2425dd57620468e9574be"
     },
     {
       "path": "overlay/overlay.mjs",
@@ -166,8 +176,8 @@
     },
     {
       "path": "overlay/payload/openclaw/dist/dispatch-from-config-CmAXENud.mjs",
-      "bytes": 173694,
-      "sha256": "4ecf54b554a5747f0d466869d43130fcca020ce966df2995cc070b9bb929a3cd"
+      "bytes": 173848,
+      "sha256": "3600951ef7c8de433b8014aa548d1214bab965668bfe93d221063e5f1b540c34"
     },
     {
       "path": "overlay/payload/openclaw/dist/ingress-drain-HjcOOU41.mjs",
@@ -176,8 +186,8 @@
     },
     {
       "path": "overlay/payload/openclaw/dist/manager-DTkVUGeR.mjs",
-      "bytes": 95221,
-      "sha256": "eb317348aaa3f7c0d6395f4997ecafec773bc5e06fa1f6e29c72431472860db5"
+      "bytes": 95642,
+      "sha256": "ef3d92fb24af99a36fd29ac40a7cf02c88f8899f66c1c5baeca8c2df1d0dad29"
     },
     {
       "path": "overlay/payload/openclaw/dist/openclaw-acp-reasoning-channel-v311.mjs",
@@ -221,8 +231,13 @@
     },
     {
       "path": "overlay/tests/adoption-chain.test.mjs",
-      "bytes": 4240,
-      "sha256": "6257110c524a65802351c4859bfcbff432508526e87dc8a94b28930843e3a966"
+      "bytes": 4200,
+      "sha256": "8e63be26cdfb48f76500fadb92d56bcce693cbad05f66b3ca33d79e12388a701"
+    },
+    {
+      "path": "overlay/tests/adoption-failure.test.mjs",
+      "bytes": 9820,
+      "sha256": "b74fc5ed9c1813f7b791aa86fc6f80db09f53313e9d986b1d0c0bc53f4f42254"
     },
     {
       "path": "overlay/tests/fixtures/acpx/dist/config-D2FTk0K7.js",
@@ -310,9 +325,19 @@
       "sha256": "aa76e1fcae2f7a45327d8f960b9699618ef3db23e783e46039a76599b68796bf"
     },
     {
+      "path": "overlay/tests/fixtures/r2/openclaw/dist/dispatch-from-config-CmAXENud.mjs",
+      "bytes": 173694,
+      "sha256": "4ecf54b554a5747f0d466869d43130fcca020ce966df2995cc070b9bb929a3cd"
+    },
+    {
+      "path": "overlay/tests/fixtures/r2/openclaw/dist/manager-DTkVUGeR.mjs",
+      "bytes": 95221,
+      "sha256": "eb317348aaa3f7c0d6395f4997ecafec773bc5e06fa1f6e29c72431472860db5"
+    },
+    {
       "path": "overlay/tests/fixtures.json",
-      "bytes": 2903,
-      "sha256": "f1d0199058f37b19888086be87abeb43212cd9f49bf267391f95f194f42ae709"
+      "bytes": 3248,
+      "sha256": "081f1517de31b0cf31afdb3d4c721e861597c049412383fa9a5c6e270cedfe36"
     },
     {
       "path": "overlay/tests/ingress-timeout.test.mjs",
@@ -321,8 +346,8 @@
     },
     {
       "path": "overlay/tests/overlay.test.mjs",
-      "bytes": 6824,
-      "sha256": "2c8ca12ecae043dd078b01eef184b58e04549257f7199ff1a3bcaa9bf36c13ce"
+      "bytes": 7905,
+      "sha256": "504acc40622713ad1aecefb56148b3eb886fa80df2216eaab9248d09337b89dc"
     },
     {
       "path": "overlay/tests/presentation.test.mjs",
@@ -331,8 +356,8 @@
     },
     {
       "path": "package.json",
-      "bytes": 533,
-      "sha256": "c9f6a3259ad3e25a8d3b08c5fd3179dd7afc499300b58fa787091b87dbd7156b"
+      "bytes": 588,
+      "sha256": "0807db40e767b13a3be2593ee59cd5c28dc0b4460c826b5d088b7c50285c0ea1"
     },
     {
       "path": "plugins/telegram-topic-mute/index.js",

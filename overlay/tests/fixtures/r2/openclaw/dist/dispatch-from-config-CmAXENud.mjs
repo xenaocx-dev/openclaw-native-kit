@@ -346,11 +346,7 @@ function runReplyDispatchHook(state, options) {
 		dispatchKind: state.dispatchKind,
 		dispatcher: state.dispatchHookDispatcher,
 		abortSignal: state.getPreDispatchAbortSignal() ?? params.replyOptions?.abortSignal,
-		onTurnAdopted: async () => {
-			// Native prompt submission is irreversible even if ingress persistence fails.
-			state.markInboundDedupeReplayUnsafe();
-			await params.replyOptions?.turnAdoptionLifecycle?.onAdopted();
-		},
+		onTurnAdopted: params.replyOptions?.turnAdoptionLifecycle?.onAdopted,
 		onReplyStart: params.replyOptions?.onReplyStart,
 		onReasoningStream: state.suppressAutomaticSourceDelivery ? void 0 : params.replyOptions?.onReasoningStream,
 		onReasoningFinal: state.suppressAutomaticSourceDelivery ? void 0 : params.replyOptions?.onReasoningFinal,

@@ -10,8 +10,9 @@
       "root": "openclaw",
       "path": "dist/dispatch-from-config-CmAXENud.mjs",
       "payload": "openclaw/dist/dispatch-from-config-CmAXENud.mjs",
-      "sha256": "4ecf54b554a5747f0d466869d43130fcca020ce966df2995cc070b9bb929a3cd",
+      "sha256": "3600951ef7c8de433b8014aa548d1214bab965668bfe93d221063e5f1b540c34",
       "accepts": [
+        "4ecf54b554a5747f0d466869d43130fcca020ce966df2995cc070b9bb929a3cd",
         "aa76e1fcae2f7a45327d8f960b9699618ef3db23e783e46039a76599b68796bf",
         "83fa38143291448ea814c76a62971adb44f6f0b7e1aa09efd7ec53bb383910e7",
         "90bab2a089448dadbcb6a2521e757211d01a213f281966c7f3d9cb1246b0353e"
@@ -166,8 +167,9 @@
       "root": "openclaw",
       "path": "dist/manager-DTkVUGeR.mjs",
       "payload": "openclaw/dist/manager-DTkVUGeR.mjs",
-      "sha256": "eb317348aaa3f7c0d6395f4997ecafec773bc5e06fa1f6e29c72431472860db5",
+      "sha256": "ef3d92fb24af99a36fd29ac40a7cf02c88f8899f66c1c5baeca8c2df1d0dad29",
       "accepts": [
+        "eb317348aaa3f7c0d6395f4997ecafec773bc5e06fa1f6e29c72431472860db5",
         "f91b4cf0121def1bb40324fa2001083e98662fab537821a9c4bc61d0f2590b1a"
       ]
     },

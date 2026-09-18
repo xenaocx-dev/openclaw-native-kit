@@ -1,12 +1,12 @@
-# OpenClaw native kit — 2026.9.4 r2 候选
+# OpenClaw native kit — 2026.9.4 r3 候选
 
-2026-09-18。面向已经安装 OpenClaw、希望通过 ACP 使用 Claude Code 原生 harness 的用户，可由 Codex / Claude Code 协助配置。r1 已归档到 private GitHub；r2 已完成增量评审，以 private 仓库的 Git 提交归档；本次不打 tag、不发布 Release。评审允许 private 更新，并记录一个后续处理的接管通知失败 P1，见 `docs/release-r2.md`。它增强 OpenClaw 内的原生执行、中文 reasoning 展示与工具接入，不提供 Claude Desktop 的完整界面。
+2026-09-18。面向已经安装 OpenClaw、希望通过 ACP 使用 Claude Code 原生 harness 的用户，可由 Codex / Claude Code 协助配置。r2 已归档到 private GitHub；当前 r3 针对评审发现的接管通知失败 P1 做最小修复，仅为待评审的本地候选，未部署生产或上传。它增强 OpenClaw 内的原生执行、中文 reasoning 展示与工具接入，不提供 Claude Desktop 的完整界面。
 
-安装入口见 [给安装 Agent 的任务](docs/agent-install.md)，本次变化见 [r2 候选说明](docs/release-r2.md)。
+安装入口见 [给安装 Agent 的任务](docs/agent-install.md)，本次变化及验证边界见 [r3 候选说明](docs/release-r3.md)。
 
 ## 内容与边界
 
-- `overlay/`：20 个补丁目标，14 个修改后的上游文件和 6 个辅助文件；payload 与维护版本逐字一致。相对 r1 更新 3 个目标、新增 3 个，其余 14 个不变。
+- `overlay/`：20 个补丁目标，14 个修改后的上游文件和 6 个辅助文件。相对 r2 只更新 dispatcher 和 manager，其余 18 个 payload 不变；r3 尚未同步到生产维护目录。
 - `config/`：从当前部署抽取的配置片段，保留普通模型 Fable 5.1 → Astra → Opus 5 → GPT‑5.6 Sol、ACP Fable 5.1、高 thinking、本地 memory 等意图。所有安装路径及群/topic 均用占位符。
 - `workspace/`：共享及独立 memory 的 Claude 项目模板；Auto 审批、skills 和 Obsidian 接入说明。
 - `skills/acp-topic-setup/`：现有 `[ACP]` 开通指引的通用化副本。
@@ -28,7 +28,7 @@ node scripts/check-package.mjs
 npm test
 ```
 
-第一项核对交付清单、文件 hash、JSON、符号链接、禁止的运行状态文件和常见凭据格式，不能代替人工脱敏 review。`npm test` 用 14 个修改前 fixture 和 3 个 r1 fixture 验证原版安装、r1 升级、备份、幂等及版本/改动拒绝，并运行中文展示清理顺序、原生任务接管与回调传递的合成测试。完整运行时和真实 Telegram E2E 不在默认检查的证明范围内。
+第一项核对交付清单、文件 hash、JSON、符号链接、禁止的运行状态文件和常见凭据格式，不能代替人工脱敏 review。`npm test` 用 14 个修改前 fixture、3 个 r1 fixture 和 2 个 r2 fixture 验证原版安装、r1/r2 升级、备份、幂等及版本/改动拒绝，并运行中文展示、接管回调和接管失败的合成测试。完整运行时和真实 Telegram E2E 不在默认检查的证明范围内。
 
 已具备下面列出的可选 MCP 依赖时，还可运行 `node helpers/topic-memory.test.cjs`；它启动真实 stdio MCP，但只读写临时合成 workspace，测试工具发现、保存、去重、检索、读取及越界拒绝。默认检查不要求这些依赖。另有复用既有完整 OpenClaw 包的可选 ingress 合成测试，见 `docs/verification.md`。
 
@@ -64,4 +64,4 @@ npm test
 
 首次 review 建议 **Fable 5.1 high**，打包整理及常规后续使用 **GPT‑5.6 medium**。优先修阻碍上传或复现的问题；不要为了本包新增框架、CI 矩阵、后台服务或全量重建器。
 
-r1 已完成首次 Fable 5.1 review；历史修订回执见 `docs/review-fixes.md`。r2 增量评审回执见 `docs/review-r2.md`，任务说明仍保留在 `REVIEW.md`。公开发布前还需明确自有代码许可证；第三方文件保留原许可证，见 `THIRD_PARTY_NOTICES.md`。不得将本地认证/状态备份提交到此目录。现有包没有手动回滚命令；apply 会生成备份和 journal，恢复前须停稳对应目标并据 journal 恢复，不能恢复整台机器的旧状态。
+r1、r2 评审回执分别见 `docs/review-fixes.md`、`docs/review-r2.md`；当前 r3 的评审任务见 `REVIEW.md`。公开发布前还需明确自有代码许可证；第三方文件保留原许可证，见 `THIRD_PARTY_NOTICES.md`。不得将本地认证/状态备份提交到此目录。现有包没有手动回滚命令；apply 会生成备份和 journal，恢复前须停稳对应目标并据 journal 恢复，不能恢复整台机器的旧状态。

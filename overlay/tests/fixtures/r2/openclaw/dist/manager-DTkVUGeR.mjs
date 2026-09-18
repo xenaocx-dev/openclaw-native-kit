@@ -1613,18 +1613,7 @@ async function consumeAcpTurnStream(params) {
 			};
 		});
 		if (readinessPromise) {
-			let readiness;
-			try {
-				readiness = await Promise.race([readinessPromise, resultPromise]);
-			} catch (error) {
-				// The prompt was accepted, but its adoption observer failed. Keep
-				// ownership until native termination; do not leave an orphan turn.
-				params.eventGate.open = false;
-				await turn.cancel({ reason: "turn-adoption-error" }).catch(() => {});
-				await turn.closeStream({ reason: "turn-adoption-error" }).catch(() => {});
-				await resultPromise;
-				throw error;
-			}
+			const readiness = await Promise.race([readinessPromise, resultPromise]);
 			if (readiness.kind === "prompt-start-error") {
 				await turn.closeStream({ reason: "turn-prompt-start-error" }).catch(() => {});
 				const terminalOutcome = await resultPromise;

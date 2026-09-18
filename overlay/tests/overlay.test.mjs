@@ -71,7 +71,7 @@ try {
 	assert.equal(second.status, "already-installed");
 	assert.equal(second.changed, 0);
 	// Reconstruct r1: three previously patched bundles plus three untouched stock
-	// bundles. The other fourteen targets already have their final r2 bytes.
+	// bundles. The other fourteen targets already have their final bytes.
 	const upgradeBefore = new Map();
 	for (const spec of manifest.targets) {
 		const prior = path.join(fixtureRoot, "r1", spec.payload);
@@ -93,7 +93,28 @@ try {
 		assert.deepEqual(fs.readFileSync(path.join(upgrade.backupDir, spec.root, spec.path)), bytes);
 	}
 	assert.equal(applyOverlay(options).changed, 0);
-	console.log("PASS r1 → r2: exactly 6 replacements, original-byte backups, idempotency");
+	console.log("PASS r1 → current: exactly 6 replacements, original-byte backups, idempotency");
+	const r2Before = new Map();
+	for (const spec of manifest.targets) {
+		const prior = path.join(fixtureRoot, "r2", spec.payload);
+		if (!fs.existsSync(prior)) continue;
+		const bytes = fs.readFileSync(prior);
+		fs.writeFileSync(path.join(roots[spec.root], spec.path), bytes);
+		r2Before.set(spec, bytes);
+	}
+	assert.equal(r2Before.size, 2);
+	const r2Inspection = inspectOverlay(options);
+	assert.equal(r2Inspection.blocked.length, 0);
+	assert.equal(r2Inspection.targets.filter(entry => entry.status === "ready-replace").length, 2);
+	assert.equal(r2Inspection.targets.filter(entry => entry.status === "installed").length, 18);
+	const r2Upgrade = applyOverlay(options);
+	assert.equal(r2Upgrade.changed, 2);
+	assert.ok(r2Upgrade.inspection.targets.every(entry => entry.status === "installed"));
+	for (const [spec, bytes] of r2Before) {
+		assert.deepEqual(fs.readFileSync(path.join(r2Upgrade.backupDir, spec.root, spec.path)), bytes);
+	}
+	assert.equal(applyOverlay(options).changed, 0);
+	console.log("PASS r2 → current: exactly 2 replacements, original-byte backups, idempotency");
 	for (const command of ["verify", "apply"]) {
 		const output = execFileSync(process.execPath, [path.join(overlayRoot, "overlay.mjs"), command,
 			"--openclaw-root", roots.openclaw, "--acpx-root", roots.acpx, "--state-dir", roots.state], {encoding:"utf8"});

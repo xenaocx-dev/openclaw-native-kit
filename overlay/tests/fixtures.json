@@ -66,5 +66,13 @@
   {
     "path": "overlay/tests/fixtures/openclaw/dist/telegram-ingress-drain-factory-EIOjXZiY.mjs",
     "sha256": "c020953ec1168fc5f83ad5898058adc4d9df62b90feaa09e46ed35f3064b11cb"
+  },
+  {
+    "path": "overlay/tests/fixtures/r2/openclaw/dist/dispatch-from-config-CmAXENud.mjs",
+    "sha256": "4ecf54b554a5747f0d466869d43130fcca020ce966df2995cc070b9bb929a3cd"
+  },
+  {
+    "path": "overlay/tests/fixtures/r2/openclaw/dist/manager-DTkVUGeR.mjs",
+    "sha256": "eb317348aaa3f7c0d6395f4997ecafec773bc5e06fa1f6e29c72431472860db5"
   }
 ]

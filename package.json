@@ -1,13 +1,13 @@
 {
   "name": "openclaw-native-kit-review",
-  "version": "0.1.0-review.r2",
+  "version": "0.1.0-review.r3",
   "private": true,
   "type": "module",
   "engines": {
     "node": ">=24 <25"
   },
   "scripts": {
-    "test": "node overlay/tests/overlay.test.mjs && node --test overlay/tests/presentation.test.mjs && node overlay/tests/adoption-chain.test.mjs",
+    "test": "node overlay/tests/overlay.test.mjs && node --test overlay/tests/presentation.test.mjs && node overlay/tests/adoption-chain.test.mjs && node --test overlay/tests/adoption-failure.test.mjs",
     "check": "node scripts/check-package.mjs",
     "test:ingress": "node overlay/tests/ingress-timeout.test.mjs"
   },
