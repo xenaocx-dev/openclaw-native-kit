@@ -24,7 +24,6 @@ async function tryDispatchAcpReplyHook(event, ctx) {
 		toolsAllow: event.toolsAllow,
 		images: event.images,
 		abortSignal: ctx.abortSignal,
-		onTurnAdopted: ctx.onTurnAdopted,
 		inboundAudio: event.inboundAudio,
 		sessionTtsAuto: event.sessionTtsAuto,
 		ttsChannel: event.ttsChannel,

@@ -42,5 +42,29 @@
   {
     "path": "overlay/tests/fixtures/adapter/dist/acp-agent.js",
     "sha256": "f0cbbe408bb758cc4bacdae9a244bcac6efbdb6413f680195d017648abc6d816"
+  },
+  {
+    "path": "overlay/tests/fixtures/r1/openclaw/dist/dispatch-from-config-CmAXENud.mjs",
+    "sha256": "aa76e1fcae2f7a45327d8f960b9699618ef3db23e783e46039a76599b68796bf"
+  },
+  {
+    "path": "overlay/tests/fixtures/r1/openclaw/dist/acpx-BDOdDqge.mjs",
+    "sha256": "2071225026a843cabea3a4c6363937d6593469d29d18485c92731240a754831e"
+  },
+  {
+    "path": "overlay/tests/fixtures/r1/openclaw/dist/dispatch-acp-txw_fKCF.mjs",
+    "sha256": "132dd586abc80fc1325e7d68b2fef5f19ac0cce9db4e6bc26ffd10023dac7d6b"
+  },
+  {
+    "path": "overlay/tests/fixtures/openclaw/dist/manager-DTkVUGeR.mjs",
+    "sha256": "f91b4cf0121def1bb40324fa2001083e98662fab537821a9c4bc61d0f2590b1a"
+  },
+  {
+    "path": "overlay/tests/fixtures/openclaw/dist/ingress-drain-HjcOOU41.mjs",
+    "sha256": "9e8ccdedf37433f4589532d91530f42df719a6b45a8e249b583e56c533f58bb5"
+  },
+  {
+    "path": "overlay/tests/fixtures/openclaw/dist/telegram-ingress-drain-factory-EIOjXZiY.mjs",
+    "sha256": "c020953ec1168fc5f83ad5898058adc4d9df62b90feaa09e46ed35f3064b11cb"
   }
 ]

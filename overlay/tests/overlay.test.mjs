@@ -4,6 +4,7 @@ import os from "node:os";
 import path from "node:path";
 import { execFileSync } from "node:child_process";
 import { createRequire } from "node:module";
+import { createHash } from "node:crypto";
 import { applyOverlay, inspectOverlay } from "../overlay.mjs";
 
 const overlayRoot = path.resolve(import.meta.dirname, "..");
@@ -20,6 +21,10 @@ const roots = {
 const options = { openclawRoot: roots.openclaw, acpxRoot: roots.acpx, stateDir: roots.state };
 
 try {
+	for (const entry of JSON.parse(fs.readFileSync(path.join(import.meta.dirname, "fixtures.json"), "utf8"))) {
+		const bytes = fs.readFileSync(path.resolve(overlayRoot, "..", entry.path));
+		assert.equal(createHash("sha256").update(bytes).digest("hex"), entry.sha256, entry.path);
+	}
 	for (const [name, version] of [
 		["openclaw", manifest.versions.openclaw],
 		["acpx", manifest.versions.acpx],
@@ -65,6 +70,30 @@ try {
 	const second = applyOverlay(options);
 	assert.equal(second.status, "already-installed");
 	assert.equal(second.changed, 0);
+	// Reconstruct r1: three previously patched bundles plus three untouched stock
+	// bundles. The other fourteen targets already have their final r2 bytes.
+	const upgradeBefore = new Map();
+	for (const spec of manifest.targets) {
+		const prior = path.join(fixtureRoot, "r1", spec.payload);
+		const newlyCovered = ["dist/manager-DTkVUGeR.mjs", "dist/ingress-drain-HjcOOU41.mjs", "dist/telegram-ingress-drain-factory-EIOjXZiY.mjs"].includes(spec.path);
+		if (!fs.existsSync(prior) && !newlyCovered) continue;
+		const bytes = fs.readFileSync(newlyCovered ? path.join(sourceRoots[spec.root], spec.path) : prior);
+		fs.writeFileSync(path.join(roots[spec.root], spec.path), bytes);
+		upgradeBefore.set(spec, bytes);
+	}
+	assert.equal(upgradeBefore.size, 6);
+	const upgradeInspection = inspectOverlay(options);
+	assert.equal(upgradeInspection.blocked.length, 0);
+	assert.equal(upgradeInspection.targets.filter(entry => entry.status === "ready-replace").length, 6);
+	assert.equal(upgradeInspection.targets.filter(entry => entry.status === "installed").length, 14);
+	const upgrade = applyOverlay(options);
+	assert.equal(upgrade.changed, 6);
+	assert.ok(upgrade.inspection.targets.every(entry => entry.status === "installed"));
+	for (const [spec, bytes] of upgradeBefore) {
+		assert.deepEqual(fs.readFileSync(path.join(upgrade.backupDir, spec.root, spec.path)), bytes);
+	}
+	assert.equal(applyOverlay(options).changed, 0);
+	console.log("PASS r1 → r2: exactly 6 replacements, original-byte backups, idempotency");
 	for (const command of ["verify", "apply"]) {
 		const output = execFileSync(process.execPath, [path.join(overlayRoot, "overlay.mjs"), command,
 			"--openclaw-root", roots.openclaw, "--acpx-root", roots.acpx, "--state-dir", roots.state], {encoding:"utf8"});

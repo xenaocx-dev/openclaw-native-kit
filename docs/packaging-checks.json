@@ -1,27 +1,36 @@
 {
-  "date": "2026-09-13",
+  "date": "2026-09-18",
+  "revision": "r2-candidate",
   "productionModified": false,
   "remoteWrites": false,
   "installedPayloadSnapshot": {
-    "matched": 17,
-    "total": 17
+    "matched": 20,
+    "total": 20,
+    "scope": "read-only installed file hashes, not current process state or E2E"
   },
   "checks": {
-    "overlayTempApplyBackupIdempotencyAndRejection": "PASS",
+    "stockOverlayInstall": "PASS: 20 targets",
+    "r1Upgrade": "PASS: exactly 6 replacements, original-byte backups, repeat apply changes zero",
+    "versionAndUnknownDriftRejection": "PASS",
+    "fixtureHashes": {
+      "passed": 17
+    },
     "presentationSyntheticTests": {
       "passed": 3,
       "failed": 0
     },
-    "javascriptSyntaxFilesChecked": 34,
-    "memoryHelperSelfTest": "PASS, no workspace files created",
-    "memoryHelperMcpRoundtrip": "PASS: temporary synthetic workspace; discover/write/deduplicate/search/get/traversal rejection",
-    "helperDependencySource": "existing local SDK 1.29.0 / zod 4.4.3 via NODE_PATH, not a fresh dependency installation",
-    "gitignoreDeliverables": "PASS"
+    "authoritativeAdoptionAndHookForwarding": "PASS: extracted callbacks, not complete dispatcher E2E",
+    "ingressWatchdogSynthetic": "PASS: existing full 9.4 dependencies, candidate ingress and reasoning matcher, in-memory queue; no Telegram/model calls",
+    "javascriptSyntaxFilesChecked": 46,
+    "packageInventoryHashJsonAndBasicCredentialScan": "PASS: 74 files, 20 payloads",
+    "gitDiffWhitespace": "PASS"
   },
+  "historicalChecks": "docs/packaging-checks-r1.json; unchanged helper not rerun",
   "notClaimed": [
     "fresh Mac restore",
     "new real Telegram E2E",
     "Astra ACP behavior",
+    "complete dispatcher E2E rerun",
     "latest upstream main reproduction",
     "complete security isolation or exhaustive secret detection"
   ]

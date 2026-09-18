@@ -2,11 +2,25 @@
 
 ## 本包新增或调整
 
-- overlay payload 不改，使用原有 version/hash 拒绝逻辑。
+- r2 从已部署维护版同步 6 个文件变化（3 更新、3 新目标），其余 14 个 payload 不变；安装器及 version/hash 拒绝逻辑不改。
 - 测试的源文件从本机安装依赖换为包内固定 fixture，并补未知版本/改动拒绝检查。
 - 复用原有 presentation 测试，仅改 import 路径。
 - memory helper 依赖从旧全局安装绝对路径换为包依赖；workspace/source 必须显式提供。不改变生产 helper。
 - JSON 与 CLAUDE/skill 文本为脱敏模板，需在目标机器完整合并并校验。静默插件代码不改。
+
+## r2 本地检查
+
+`node scripts/check-package.mjs` 与 `npm test` 是默认检查。后者覆盖原版安装和 r1 升级、备份与幂等，并复用已有 presentation 和接管回调的合成用例。adoption-chain 测试执行真实 manager 回调与 ACP hook 的提取代码；其余两段转发为源码断言，不能称为完整 dispatcher 端到端测试。
+
+已有完整 OpenClaw 2026.9.4 包时，可额外运行：
+
+```sh
+OPENCLAW_TEST_ROOT=/path/to/node_modules/openclaw npm run test:ingress
+```
+
+该测试从指定包只读加载 ingress 的依赖，通过加载钩子替换成候选 ingress payload，以内存队列模拟接管和超时；reasoning matcher 从候选 payload 加载。无需安装插件、启动 Gateway、写生产 state、访问 Telegram 或调用模型。环境变量必须指向精确版本；不要为此额外重建一台机器。
+
+本轮结果见 `docs/packaging-checks.json`；r1 历史记录见 `docs/packaging-checks-r1.json`。对生产执行的 overlay verify 仅证明磁盘文件 20/20 相同，不证明当前进程加载状态；没有把旧自然使用证据表述为本轮重跑 E2E。
 
 ## 已有运行证据与保留缺口
 
@@ -16,7 +30,9 @@
 
 BNB 迁移保留原生会话，验证零提示恢复、Fable/Auto/high、工具发现与独立 memory 检索；真实业务长回合、memory_propose 写入及 Telegram 全链路还需在自然使用中确认，不能把初始化当成业务验收。
 
-## review 后的隔离重建最小验收
+## 新用户完成接入后的最小验收参考
+
+以下用于新接入的功能；本次 r2 打包不重复已经工作的生产功能或完整矩阵。
 
 1. 精确版本和完整候选 config validate；overlay 全部 installed。
 2. 普通 topic 按指定模型回复、同会话追问、实际 memory_search。

@@ -1384,7 +1384,6 @@ async function tryDispatchAcpReplyCore(params) {
 			requestId,
 			...params.abortSignal ? { signal: params.abortSignal } : {},
 			onElicitation,
-			onTurnAdopted: params.onTurnAdopted,
 			onLifecycle: recordUnsupportedNativeActionEvidence,
 			onEvent: async (event) => {
 				auditRuntime.emitAcpRuntimeEvent({

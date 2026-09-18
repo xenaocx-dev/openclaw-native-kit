@@ -10,8 +10,9 @@
       "root": "openclaw",
       "path": "dist/dispatch-from-config-CmAXENud.mjs",
       "payload": "openclaw/dist/dispatch-from-config-CmAXENud.mjs",
-      "sha256": "aa76e1fcae2f7a45327d8f960b9699618ef3db23e783e46039a76599b68796bf",
+      "sha256": "4ecf54b554a5747f0d466869d43130fcca020ce966df2995cc070b9bb929a3cd",
       "accepts": [
+        "aa76e1fcae2f7a45327d8f960b9699618ef3db23e783e46039a76599b68796bf",
         "83fa38143291448ea814c76a62971adb44f6f0b7e1aa09efd7ec53bb383910e7",
         "90bab2a089448dadbcb6a2521e757211d01a213f281966c7f3d9cb1246b0353e"
       ]
@@ -20,8 +21,9 @@
       "root": "openclaw",
       "path": "dist/acpx-BDOdDqge.mjs",
       "payload": "openclaw/dist/acpx-BDOdDqge.mjs",
-      "sha256": "2071225026a843cabea3a4c6363937d6593469d29d18485c92731240a754831e",
+      "sha256": "b65296a18d36dbe5e4fb9333377c98342929e9d0f8870d0d3a378e247f0d83f0",
       "accepts": [
+        "2071225026a843cabea3a4c6363937d6593469d29d18485c92731240a754831e",
         "e8f5eaba09f120b5ca2cccf1bacdbfbf2268293f4e622a1d4fb057cbb2be2f04"
       ]
     },
@@ -29,8 +31,9 @@
       "root": "openclaw",
       "path": "dist/dispatch-acp-txw_fKCF.mjs",
       "payload": "openclaw/dist/dispatch-acp-txw_fKCF.mjs",
-      "sha256": "132dd586abc80fc1325e7d68b2fef5f19ac0cce9db4e6bc26ffd10023dac7d6b",
+      "sha256": "54b3892f191ccfb6aa464d4124e388e2609acf4e49be40b53766f1475fdfd9e9",
       "accepts": [
+        "132dd586abc80fc1325e7d68b2fef5f19ac0cce9db4e6bc26ffd10023dac7d6b",
         "5235019300070eb107f6a62d76c194602abb2182c183b918fa634c8e7c3d282c"
       ]
     },
@@ -158,6 +161,33 @@
       "sha256": "618a8771371fdfa337011480e633dcbc43da1e6bc1972b12ca1d3ebc4e10b393",
       "accepts": [],
       "mode": 448
+    },
+    {
+      "root": "openclaw",
+      "path": "dist/manager-DTkVUGeR.mjs",
+      "payload": "openclaw/dist/manager-DTkVUGeR.mjs",
+      "sha256": "eb317348aaa3f7c0d6395f4997ecafec773bc5e06fa1f6e29c72431472860db5",
+      "accepts": [
+        "f91b4cf0121def1bb40324fa2001083e98662fab537821a9c4bc61d0f2590b1a"
+      ]
+    },
+    {
+      "root": "openclaw",
+      "path": "dist/ingress-drain-HjcOOU41.mjs",
+      "payload": "openclaw/dist/ingress-drain-HjcOOU41.mjs",
+      "sha256": "200063479d19020189f8f60fee34cdf955512305b352b42f70e2d2860776ecb0",
+      "accepts": [
+        "9e8ccdedf37433f4589532d91530f42df719a6b45a8e249b583e56c533f58bb5"
+      ]
+    },
+    {
+      "root": "openclaw",
+      "path": "dist/telegram-ingress-drain-factory-EIOjXZiY.mjs",
+      "payload": "openclaw/dist/telegram-ingress-drain-factory-EIOjXZiY.mjs",
+      "sha256": "21676ad7ea7c8bd87e2d2f79643c082c02083eea84ea7a711b92b0640ccd6fbe",
+      "accepts": [
+        "c020953ec1168fc5f83ad5898058adc4d9df62b90feaa09e46ed35f3064b11cb"
+      ]
     }
   ]
 }
