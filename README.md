@@ -1,6 +1,6 @@
 # OpenClaw native kit — 2026.9.4 r3 候选
 
-2026-09-18。面向已经安装 OpenClaw、希望通过 ACP 使用 Claude Code 原生 harness 的用户，可由 Codex / Claude Code 协助配置。r2 已归档到 private GitHub；当前 r3 针对接管通知失败 P1 的最小修复已通过 Fable 增量评审，仍为本地候选，未部署生产或上传。它增强 OpenClaw 内的原生执行、中文 reasoning 展示与工具接入，不提供 Claude Desktop 的完整界面。
+2026-09-18。面向已经安装 OpenClaw、希望通过 ACP 使用 Claude Code 原生 harness 的用户，可由 Codex / Claude Code 协助配置。r2 已归档到 private GitHub；当前 r3 针对接管通知失败 P1 的最小修复已通过 Fable 增量评审，以 private 仓库 Git 提交归档；尚未部署生产、打 tag 或发布 Release。它增强 OpenClaw 内的原生执行、中文 reasoning 展示与工具接入，不提供 Claude Desktop 的完整界面。
 
 安装入口见 [给安装 Agent 的任务](docs/agent-install.md)，本次变化及验证边界见 [r3 候选说明](docs/release-r3.md)。
 

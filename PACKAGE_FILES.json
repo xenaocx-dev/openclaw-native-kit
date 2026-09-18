@@ -2,7 +2,7 @@
   "format": 1,
   "created": "2026-09-18",
   "revision": "r3-candidate",
-  "scope": "local reviewed r3 candidate; no production deployment or remote upload",
+  "scope": "reviewed r3 candidate for private Git archive; no production deployment, tag or Release",
   "files": [
     {
       "path": ".gitignore",
@@ -11,8 +11,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 7460,
-      "sha256": "230e5c182d265ed3e88ef06e2ebd57a6a240de70c3831a4297bb2a1d1a9eccf1"
+      "bytes": 7499,
+      "sha256": "c88582590732dfbb24efcbd8b3ac5f97798db80b8269f54ae0e954e1603ae34b"
     },
     {
       "path": "REVIEW.md",
@@ -76,8 +76,8 @@
     },
     {
       "path": "docs/release-r3.md",
-      "bytes": 3277,
-      "sha256": "9c8d71acafe354f1f7d810cb269fcf8e7171df48e33d70bab98c2bdd0782b467"
+      "bytes": 3313,
+      "sha256": "a81544699dad390d9d7ea4dd1849eb4a8e9a47cf02c9b8870a0178156bf790a5"
     },
     {
       "path": "docs/review-fixes.md",
@@ -91,8 +91,8 @@
     },
     {
       "path": "docs/review-r3.md",
-      "bytes": 1701,
-      "sha256": "33ad7d89c7e9ebbe4536cf136a1c450d577c59e54cd737257dbbf6e748ea909d"
+      "bytes": 1726,
+      "sha256": "c9ba58410963da21beea88a73e569fdc95497af03abc1544f584e4891e07c681"
     },
     {
       "path": "docs/verification.md",
