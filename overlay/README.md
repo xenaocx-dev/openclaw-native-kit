@@ -1,6 +1,6 @@
 # 精确版本 overlay
 
-绑定 OpenClaw 2026.9.4、@openclaw/acpx 2026.9.4、claude-agent-acp 0.70.0。20 个 payload 包含 permission/turn/reasoning、MCP 路径、ACP reset、Claude transcript、dispatch ownership、edit recovery 及 ACP ingress adoption 的修改。r3 在 r2 维护副本基础上仅修改 manager/dispatcher 两项，尚未部署。
+绑定 OpenClaw 2026.9.4、@openclaw/acpx 2026.9.4、claude-agent-acp 0.70.0。20 个 payload 包含 permission/turn/reasoning、MCP 路径、ACP reset、Claude transcript、dispatch ownership、edit recovery 及 ACP ingress adoption 的修改。r3 修改 manager/dispatcher 两项；r3.1 为 adapter 增加修改声明注释。维护者生产环境未改。
 
 ```sh
 node overlay/overlay.mjs verify \
@@ -15,6 +15,6 @@ apply 的备份/journal 在目标 state 的 `patch-backups/<manifest.id>/<timest
 
 tests/fixtures 中有 14 个获准的修改前源码文件、3 个 r1 payload 和 2 个 r2 payload，供离线测试生成原版、r1 和 r2 安装。辅助文件按创建路径测试；没有整棵 node_modules、生产配置和日志。fixtures 不覆盖 accepts 中每个历史 hash。有关行为测试与真实 E2E 的区别见上级 docs/verification.md。
 
-r1/r2 升级使用相同命令，无需先卸载。原版 9.4 预期为 14 个 ready-replace、6 个 ready-create；完整 r1 预期为 6 个 ready-replace、14 个 installed；完整 r2 预期为 2 个 ready-replace、18 个 installed；完整 r3 应为 20 个 installed。manifest.id 沿用原系列标识，具体修订以 PACKAGE_FILES.json 的 revision 和 Git commit 为准。apply 不修改配置中的超时、模型或权限。
+r1/r2 升级使用相同命令，无需先卸载。原版 9.4 预期为 14 个 ready-replace、6 个 ready-create；完整 r1 预期为 7 个 ready-replace、13 个 installed；完整 r2 预期为 3 个 ready-replace、17 个 installed；完整 r3 为 1 个 ready-replace、19 个 installed（仅 adapter 注释）；完整 r3.1 为 20 个 installed。manifest.id 沿用原系列标识，具体修订以 PACKAGE_FILES.json 的 revision 和 Git commit 为准。apply 不修改配置中的超时、模型或权限。
 
 verify/apply 现在输出四个 `roots`。必须按 `../docs/config-contract.md` 将这些路径与 Gateway、adapter 启动入口和 ACPX peer 解析结果核对；不能把同版本另一份副本的 installed 当作运行时生效。apply 会在指定 state/bin 写入 translator。

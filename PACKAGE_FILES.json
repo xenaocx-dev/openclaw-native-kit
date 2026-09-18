@@ -1,8 +1,8 @@
 {
   "format": 1,
   "created": "2026-09-18",
-  "revision": "r3-candidate",
-  "scope": "reviewed r3 private prerelease v2026.9.4-r3; not deployed to production",
+  "revision": "r3.1",
+  "scope": "public prerelease packaging; original work MIT; third-party licenses retained; no production deployment",
   "files": [
     {
       "path": ".gitignore",
@@ -10,9 +10,14 @@
       "sha256": "138a4aec2c79b86bdb2d6d50d66fea2bf3902ddff6111f5b06f2f77f92c2bbe5"
     },
     {
+      "path": "LICENSE",
+      "bytes": 1085,
+      "sha256": "138c5432901086da01c625d2e349efe58605c5ba0c702b009536b31ac605cf7e"
+    },
+    {
       "path": "README.md",
-      "bytes": 7633,
-      "sha256": "58d89e24629e40231dbe5f17010c3ab7ab8de08d1ac626cfa02b964ebb13bcc8"
+      "bytes": 8294,
+      "sha256": "042590ac0f208511c83c45fe54976601c54db9a19a4e6a75c9b28641a725302c"
     },
     {
       "path": "REVIEW.md",
@@ -21,8 +26,8 @@
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
-      "bytes": 1252,
-      "sha256": "3e5ec33dcb28f65eb253148adc4523f8aa9ccfa1b2be07968d340a62571407a8"
+      "bytes": 3043,
+      "sha256": "0a9258c85e9185829cbef8e8f3d2777015622fbc8739e08655968eae2df7ba94"
     },
     {
       "path": "UPSTREAM.md",
@@ -65,6 +70,11 @@
       "sha256": "99cc0093193457318a796150527d62b458fe0fc32ee7ea98be36fb1fe0ba0167"
     },
     {
+      "path": "docs/packaging-checks-r3.1.json",
+      "bytes": 971,
+      "sha256": "65a4bfa0e91957dd532a6acba8e692186394cdbcef5c1db2037fa0dba888dba0"
+    },
+    {
       "path": "docs/packaging-checks.json",
       "bytes": 1393,
       "sha256": "844dd627d72d90b7c73efa00786607bf42af484892f8a66c5a0f0751dee12de1"
@@ -73,6 +83,11 @@
       "path": "docs/release-r2.md",
       "bytes": 3747,
       "sha256": "5d50fe6cd81ab78c308cfed3e963fa81ffc6eacabd3b3e2ec125939ca232afe2"
+    },
+    {
+      "path": "docs/release-r3.1.md",
+      "bytes": 1291,
+      "sha256": "73b5cfaab4ea5b6409009df8bc85b8302fa7da6888b2acd11d33ec96396faaad"
     },
     {
       "path": "docs/release-r3.md",
@@ -95,9 +110,14 @@
       "sha256": "c9ba58410963da21beea88a73e569fdc95497af03abc1544f584e4891e07c681"
     },
     {
+      "path": "docs/sharing.md",
+      "bytes": 1785,
+      "sha256": "306bed96488153ffaae45fd3386d53a8e2d2c2da33f3552a3bec9eede9c96515"
+    },
+    {
       "path": "docs/verification.md",
-      "bytes": 4514,
-      "sha256": "1d48b1dc1d6dd7149b9b00544ef53f0da0ecf9f733af95fc35a72fc1c7a1c715"
+      "bytes": 5040,
+      "sha256": "163bba54683a5e9abae3dc1661b13a5f81530b3535cbca1ef48f483937f50ff6"
     },
     {
       "path": "helpers/topic-memory-mcp.cjs",
@@ -120,14 +140,19 @@
       "sha256": "73571b25326281d369087f469842c02444fe39faaecebda4d82ed21ff3a1c29d"
     },
     {
+      "path": "licenses/openclaw-THIRD_PARTY_NOTICES.md",
+      "bytes": 2855,
+      "sha256": "c1d1bbc550feee74853eba104e347341569cbbbe37a9f77659993ca0766277d5"
+    },
+    {
       "path": "overlay/README.md",
-      "bytes": 2146,
-      "sha256": "96a3020bd401ad2abb6393becb0870510eb9fb0df8ae44ae942e734f8aae8466"
+      "bytes": 2252,
+      "sha256": "c472acad7a443430e536465f0d78e81c6e9330a23e43723d41a319bdf8e6afe2"
     },
     {
       "path": "overlay/manifest.json",
-      "bytes": 7391,
-      "sha256": "64391e430f007181475dd810d19442ccabc541a581e2425dd57620468e9574be"
+      "bytes": 7467,
+      "sha256": "d8f11b3fe822d798ec03b76ae709b696a66f4f82e5e83b8e92c1ce2e5669425e"
     },
     {
       "path": "overlay/overlay.mjs",
@@ -141,8 +166,8 @@
     },
     {
       "path": "overlay/payload/claude-agent-acp/dist/acp-agent.js",
-      "bytes": 405584,
-      "sha256": "bc48b4c55650c4b35a90d939f9022809b024bbcdb23448552cf759bd13a20614"
+      "bytes": 406122,
+      "sha256": "169f7cdb7bd5942c937134915f18c3276789dca5d4a02e8c7429a6cdaf1d839f"
     },
     {
       "path": "overlay/payload/claude-agent-acp/dist/openclaw-acp-compat-v1.mjs",
@@ -351,8 +376,8 @@
     },
     {
       "path": "overlay/tests/overlay.test.mjs",
-      "bytes": 7905,
-      "sha256": "504acc40622713ad1aecefb56148b3eb886fa80df2216eaab9248d09337b89dc"
+      "bytes": 9147,
+      "sha256": "0cc7c75aba2ecb26d25ac6eaee716ae9b19197acfaed84e5f85932a62abceb2c"
     },
     {
       "path": "overlay/tests/presentation.test.mjs",
@@ -361,8 +386,8 @@
     },
     {
       "path": "package.json",
-      "bytes": 588,
-      "sha256": "0807db40e767b13a3be2593ee59cd5c28dc0b4460c826b5d088b7c50285c0ea1"
+      "bytes": 610,
+      "sha256": "f50a4edf6025bb7dbef7c0dc68461f8338c3055fc989c6b86eab54d7f71ffa80"
     },
     {
       "path": "plugins/telegram-topic-mute/index.js",

@@ -19,6 +19,13 @@ const roots = {
 	state: path.join(tempRoot, "state")
 };
 const options = { openclawRoot: roots.openclaw, acpxRoot: roots.acpx, stateDir: roots.state };
+const adapterSpec = manifest.targets.find(spec => spec.payload === "claude-agent-acp/dist/acp-agent.js");
+const adapterWithNotice = fs.readFileSync(path.join(overlayRoot, "payload", adapterSpec.payload), "utf8");
+assert.ok(adapterWithNotice.startsWith("/* OpenClaw Native Kit modification notice"));
+// Recover the byte-exact r1/r2/r3 adapter in memory; do not ship a second
+// modified Apache source file without the new notice just for a fixture.
+const adapterBeforeNotice = Buffer.from(adapterWithNotice.slice(adapterWithNotice.indexOf("*/\n") + 3));
+assert.ok(adapterSpec.accepts.includes(createHash("sha256").update(adapterBeforeNotice).digest("hex")));
 
 try {
 	for (const entry of JSON.parse(fs.readFileSync(path.join(import.meta.dirname, "fixtures.json"), "utf8"))) {
@@ -70,51 +77,57 @@ try {
 	const second = applyOverlay(options);
 	assert.equal(second.status, "already-installed");
 	assert.equal(second.changed, 0);
-	// Reconstruct r1: three previously patched bundles plus three untouched stock
-	// bundles. The other fourteen targets already have their final bytes.
+	// Reconstruct r1: six core changes plus the adapter's comment-only notice.
 	const upgradeBefore = new Map();
 	for (const spec of manifest.targets) {
 		const prior = path.join(fixtureRoot, "r1", spec.payload);
 		const newlyCovered = ["dist/manager-DTkVUGeR.mjs", "dist/ingress-drain-HjcOOU41.mjs", "dist/telegram-ingress-drain-factory-EIOjXZiY.mjs"].includes(spec.path);
-		if (!fs.existsSync(prior) && !newlyCovered) continue;
-		const bytes = fs.readFileSync(newlyCovered ? path.join(sourceRoots[spec.root], spec.path) : prior);
+		if (!fs.existsSync(prior) && !newlyCovered && spec !== adapterSpec) continue;
+		const bytes = spec === adapterSpec ? adapterBeforeNotice : fs.readFileSync(newlyCovered ? path.join(sourceRoots[spec.root], spec.path) : prior);
 		fs.writeFileSync(path.join(roots[spec.root], spec.path), bytes);
 		upgradeBefore.set(spec, bytes);
 	}
-	assert.equal(upgradeBefore.size, 6);
+	assert.equal(upgradeBefore.size, 7);
 	const upgradeInspection = inspectOverlay(options);
 	assert.equal(upgradeInspection.blocked.length, 0);
-	assert.equal(upgradeInspection.targets.filter(entry => entry.status === "ready-replace").length, 6);
-	assert.equal(upgradeInspection.targets.filter(entry => entry.status === "installed").length, 14);
+	assert.equal(upgradeInspection.targets.filter(entry => entry.status === "ready-replace").length, 7);
+	assert.equal(upgradeInspection.targets.filter(entry => entry.status === "installed").length, 13);
 	const upgrade = applyOverlay(options);
-	assert.equal(upgrade.changed, 6);
+	assert.equal(upgrade.changed, 7);
 	assert.ok(upgrade.inspection.targets.every(entry => entry.status === "installed"));
 	for (const [spec, bytes] of upgradeBefore) {
 		assert.deepEqual(fs.readFileSync(path.join(upgrade.backupDir, spec.root, spec.path)), bytes);
 	}
 	assert.equal(applyOverlay(options).changed, 0);
-	console.log("PASS r1 → current: exactly 6 replacements, original-byte backups, idempotency");
+	console.log("PASS r1 → current: 6 core replacements + adapter notice, byte backups, idempotency");
 	const r2Before = new Map();
 	for (const spec of manifest.targets) {
 		const prior = path.join(fixtureRoot, "r2", spec.payload);
-		if (!fs.existsSync(prior)) continue;
-		const bytes = fs.readFileSync(prior);
+		if (!fs.existsSync(prior) && spec !== adapterSpec) continue;
+		const bytes = spec === adapterSpec ? adapterBeforeNotice : fs.readFileSync(prior);
 		fs.writeFileSync(path.join(roots[spec.root], spec.path), bytes);
 		r2Before.set(spec, bytes);
 	}
-	assert.equal(r2Before.size, 2);
+	assert.equal(r2Before.size, 3);
 	const r2Inspection = inspectOverlay(options);
 	assert.equal(r2Inspection.blocked.length, 0);
-	assert.equal(r2Inspection.targets.filter(entry => entry.status === "ready-replace").length, 2);
-	assert.equal(r2Inspection.targets.filter(entry => entry.status === "installed").length, 18);
+	assert.equal(r2Inspection.targets.filter(entry => entry.status === "ready-replace").length, 3);
+	assert.equal(r2Inspection.targets.filter(entry => entry.status === "installed").length, 17);
 	const r2Upgrade = applyOverlay(options);
-	assert.equal(r2Upgrade.changed, 2);
+	assert.equal(r2Upgrade.changed, 3);
 	assert.ok(r2Upgrade.inspection.targets.every(entry => entry.status === "installed"));
 	for (const [spec, bytes] of r2Before) {
 		assert.deepEqual(fs.readFileSync(path.join(r2Upgrade.backupDir, spec.root, spec.path)), bytes);
 	}
 	assert.equal(applyOverlay(options).changed, 0);
-	console.log("PASS r2 → current: exactly 2 replacements, original-byte backups, idempotency");
+	console.log("PASS r2 → current: 2 core replacements + adapter notice, byte backups, idempotency");
+	fs.writeFileSync(path.join(roots.adapter, adapterSpec.path), adapterBeforeNotice);
+	const r3Upgrade = applyOverlay(options);
+	assert.equal(r3Upgrade.changed, 1);
+	assert.deepEqual(fs.readFileSync(path.join(r3Upgrade.backupDir, "adapter", adapterSpec.path)), adapterBeforeNotice);
+	assert.ok(r3Upgrade.inspection.targets.every(entry => entry.status === "installed"));
+	assert.equal(applyOverlay(options).changed, 0);
+	console.log("PASS r3 → current: only adapter notice, original-byte backup, idempotency");
 	for (const command of ["verify", "apply"]) {
 		const output = execFileSync(process.execPath, [path.join(overlayRoot, "overlay.mjs"), command,
 			"--openclaw-root", roots.openclaw, "--acpx-root", roots.acpx, "--state-dir", roots.state], {encoding:"utf8"});

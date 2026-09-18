@@ -107,8 +107,9 @@
       "root": "adapter",
       "path": "dist/acp-agent.js",
       "payload": "claude-agent-acp/dist/acp-agent.js",
-      "sha256": "bc48b4c55650c4b35a90d939f9022809b024bbcdb23448552cf759bd13a20614",
+      "sha256": "169f7cdb7bd5942c937134915f18c3276789dca5d4a02e8c7429a6cdaf1d839f",
       "accepts": [
+        "bc48b4c55650c4b35a90d939f9022809b024bbcdb23448552cf759bd13a20614",
         "f0cbbe408bb758cc4bacdae9a244bcac6efbdb6413f680195d017648abc6d816"
       ]
     },

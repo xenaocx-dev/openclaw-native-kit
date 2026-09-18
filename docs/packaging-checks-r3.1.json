@@ -1,0 +1,24 @@
+{
+  "date": "2026-09-18",
+  "revision": "r3.1",
+  "scope": "public distribution packaging only",
+  "productionModified": false,
+  "runtimeChanges": "none; adapter has an added modification-notice comment",
+  "checks": {
+    "adapterExecutableBytesAgainstR3": "identical after removing new header",
+    "upstreamLicenseAndNoticeCopies": "byte-identical to installed upstream packages",
+    "npmTest": "PASS: stock install; r1/r2/r3 upgrade, byte backups, idempotency, rejection checks; presentation 3; adoption-chain; adoption-failure 8",
+    "gitHistoryScan": {
+      "objects": 130,
+      "matches": 0,
+      "scope": "existing history before packaging commit; basic credential and private-path patterns"
+    },
+    "commitIdentity": "all existing commits use noreply email"
+  },
+  "notClaimed": [
+    "production deployment",
+    "real native cancellation or fresh Telegram E2E",
+    "exhaustive security review",
+    "compatibility with other OpenClaw versions"
+  ]
+}

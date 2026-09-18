@@ -1,12 +1,18 @@
-# OpenClaw native kit — 2026.9.4 r3 候选
+# OpenClaw Native Kit
 
-2026-09-18。面向已经安装 OpenClaw、希望通过 ACP 使用 Claude Code 原生 harness 的用户，可由 Codex / Claude Code 协助配置。r2 已归档到 private GitHub；当前 r3 针对接管通知失败 P1 的最小修复已通过 Fable 增量评审，以 private 仓库归档，版本标识为 `v2026.9.4-r3`；作为预发布版提供，尚未部署生产。发布入口见 [GitHub Release](https://github.com/xenaocx-dev/openclaw-native-kit/releases/tag/v2026.9.4-r3)。它增强 OpenClaw 内的原生执行、中文 reasoning 展示与工具接入，不提供 Claude Desktop 的完整界面。
+让现有 OpenClaw 的 ACP topic 运行原生 Claude Code，并接入记忆和部分 OpenClaw 工具。提供原生 reasoning 推流，以及本地中文整理、摘要和留存。适合通过本机 Codex / Claude Code 协助安装的用户；不是 Claude Desktop 界面复刻，也不是一键安装器。
 
-安装入口见 [给安装 Agent 的任务](docs/agent-install.md)，本次变化及验证边界见 [r3 候选说明](docs/release-r3.md)。
+当前分享版 **v2026.9.4-r3.1**，精确绑定 OpenClaw / ACPX **2026.9.4** 和 Claude adapter **0.70.0**。这是已测试的预发布版；r3.1 仅补许可证与声明，r3 的两处运行修复尚未部署到维护者生产实例。
+
+**[下载安装包](https://github.com/xenaocx-dev/openclaw-native-kit/releases/tag/v2026.9.4-r3.1)** · **[交给 Codex / Claude Code 的安装任务](docs/agent-install.md)** · [USER / DEV 分享介绍](docs/sharing.md)
+
+下载并解压后，让安装 Agent 先读 README 和安装任务，再运行 `node scripts/check-package.mjs`、`npm test`。只对版本和实际安装路径匹配的目标执行 overlay verify；配置按字段合并，不能覆盖现有完整配置。详见下方部署顺序。
+
+模型需在你的账号中可用。模板里的 Fable / Astra 等标识是示例，并不随安装包提供模型访问权；已有有效原生登录无需重做。Claude ACP 是当前验证重点，Astra ACP 行为尚未验收。
 
 ## 内容与边界
 
-- `overlay/`：20 个补丁目标，14 个修改后的上游文件和 6 个辅助文件。相对 r2 只更新 dispatcher 和 manager，其余 18 个 payload 不变；r3 尚未同步到生产维护目录。
+- `overlay/`：20 个补丁目标，14 个修改后的上游文件和 6 个辅助文件。相对 r2，r3 更新 dispatcher 和 manager；r3.1 另给 adapter 增加注释声明，不改变其执行代码。生产环境未修改。
 - `config/`：从当前部署抽取的配置片段，保留普通模型 Fable 5.1 → Astra → Opus 5 → GPT‑5.6 Sol、ACP Fable 5.1、高 thinking、本地 memory 等意图。所有安装路径及群/topic 均用占位符。
 - `workspace/`：共享及独立 memory 的 Claude 项目模板；Auto 审批、skills 和 Obsidian 接入说明。
 - `skills/acp-topic-setup/`：现有 `[ACP]` 开通指引的通用化副本。
@@ -15,9 +21,9 @@
 - `REVIEW.md`：可直接交给 Fable 5.1 的评审任务。
 - `UPSTREAM.md`：既有 GitHub 贡献、重复项及候选优先级。
 
-不包含账号凭据、token、原配置、Telegram 标识、会话数据库、对话、memory 正文、Obsidian 笔记、业务 workspace、19 个私人 skills、安装依赖树及历史备份。认证需要在目标机器重新完成。个人定时任务、其他模型目录、旧 wrapper 和历史实验不属于这份可复用基线。
+不包含账号凭据、token、原配置、Telegram 标识、会话数据库、对话、memory 正文、Obsidian 笔记、业务 workspace、私人 skills、安装依赖树及历史备份。目标机器需具备有效原生认证，已有登录可继续使用。个人定时任务、其他模型目录、旧 wrapper 和历史实验不属于这份可复用基线。
 
-这是一份面向既有 OpenClaw 安装的配置与补丁包。JSON 是合并片段，不能直接覆盖完整生产配置；身份认证、频道接入、服务注册、浏览器及宿主权限仍由目标机器的官方初始化流程配置。没有新增自动部署或自动升级系统。空白 Mac 重建不属于本次 r2 的发布验收范围。
+这是一份面向既有 OpenClaw 安装的配置与补丁包。JSON 是合并片段，不能直接覆盖完整生产配置；身份认证、频道接入、服务注册、浏览器及宿主权限仍由目标机器的官方初始化流程配置。没有新增自动部署或自动升级系统。空白 Mac 重建不属于本次分享版的验收范围。
 
 ## 本地检查
 
@@ -39,7 +45,7 @@ npm test
 | Node | 24 |
 | OpenClaw / 官方 `@openclaw/acpx` | 2026.9.4 / 2026.9.4 |
 | `@agentclientprotocol/claude-agent-acp` | 0.70.0 |
-| Claude Code | 可由上述 adapter 启动的本机原生 CLI；需重新原生登录 |
+| Claude Code | 可由上述 adapter 启动的本机原生 CLI；需已有有效原生登录 |
 | 本地 embedding | Ollama `bge-m3`，`127.0.0.1:11434/v1` |
 | 中文展示整理 | Ollama `qwen3:4b-instruct-2507-q4_K_M`，loopback 11434 |
 | 可选独立 memory helper | MCP SDK 1.29.0、zod 4.4.3 |
@@ -64,4 +70,4 @@ npm test
 
 首次 review 建议 **Fable 5.1 high**，打包整理及常规后续使用 **GPT‑5.6 medium**。优先修阻碍上传或复现的问题；不要为了本包新增框架、CI 矩阵、后台服务或全量重建器。
 
-r1、r2 评审回执分别见 `docs/review-fixes.md`、`docs/review-r2.md`；当前 r3 的评审任务见 `REVIEW.md`。公开发布前还需明确自有代码许可证；第三方文件保留原许可证，见 `THIRD_PARTY_NOTICES.md`。不得将本地认证/状态备份提交到此目录。现有包没有手动回滚命令；apply 会生成备份和 journal，恢复前须停稳对应目标并据 journal 恢复，不能恢复整台机器的旧状态。
+r1、r2 评审回执分别见 `docs/review-fixes.md`、`docs/review-r2.md`；r3 的评审任务和回执见 `REVIEW.md`、`docs/review-r3.md`。自有内容使用 [MIT](LICENSE)，第三方文件保留原许可证，见 [第三方声明](THIRD_PARTY_NOTICES.md)。r3.1 仅作公开分享包装，变化见 `docs/release-r3.1.md`。不得将本地认证/状态备份提交到此目录。现有包没有手动回滚命令；apply 会生成备份和 journal，恢复前须停稳对应目标并据 journal 恢复，不能恢复整台机器的旧状态。

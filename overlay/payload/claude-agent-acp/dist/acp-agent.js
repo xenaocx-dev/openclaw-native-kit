@@ -1,3 +1,12 @@
+/* OpenClaw Native Kit modification notice (2026-09-18).
+ * Derived from @agentclientprotocol/claude-agent-acp 0.70.0.
+ * Copyright 2025 Zed Industries, Inc. and contributors. Apache-2.0.
+ * Modified by OpenClaw Native Kit contributors: native permission forms,
+ * reasoning summary/language controls, and local compatibility-module wiring.
+ * r3.1 adds this notice only; executable code is unchanged from r3.
+ * License and attribution: licenses/claude-agent-acp-Apache-2.0.txt and
+ * THIRD_PARTY_NOTICES.md in the kit distribution.
+ */
 import { requestPermissionForm, nativeSummaryLanguagePrompt } from "./openclaw-acp-compat-v1.mjs";
 import { agent as acpAgent, methods, ndJsonStream, RequestError, } from "@agentclientprotocol/sdk";
 import { deleteSession, getSessionInfo, getSessionMessages, listSessions, query, } from "@anthropic-ai/claude-agent-sdk";
