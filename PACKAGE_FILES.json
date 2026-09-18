@@ -2,7 +2,7 @@
   "format": 1,
   "created": "2026-09-18",
   "revision": "r2-candidate",
-  "scope": "sanitized reviewed local release candidate; no remote upload",
+  "scope": "sanitized reviewed r2 candidate for private Git archive; no tag or Release",
   "files": [
     {
       "path": ".gitignore",
@@ -11,8 +11,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 7539,
-      "sha256": "c814b96f0c9b938fe590a41dbc690f66d434003ea21f286c8fc613c36ad80637"
+      "bytes": 7569,
+      "sha256": "1de36461582bce9d285b859bc54bc78441c36d720b0aa1e8e584588319fd2e5b"
     },
     {
       "path": "REVIEW.md",
@@ -66,8 +66,8 @@
     },
     {
       "path": "docs/release-r2.md",
-      "bytes": 3724,
-      "sha256": "aae0b9401f8d9cd7ef627a375b2f00ffc803c87952eaa5e05fda40fb80ea8a27"
+      "bytes": 3747,
+      "sha256": "5d50fe6cd81ab78c308cfed3e963fa81ffc6eacabd3b3e2ec125939ca232afe2"
     },
     {
       "path": "docs/review-fixes.md",

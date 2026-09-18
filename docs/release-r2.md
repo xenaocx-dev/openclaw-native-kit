@@ -1,6 +1,6 @@
 # 2026.9.4 r2 — 本地候选
 
-日期：2026-09-18。基于已 private 归档的 r1（`c3101af`），候选 `b6cba3e` 已完成 Fable 5.1 high 增量评审，结论为可以更新 private 仓库；回执见 [review-r2.md](review-r2.md)。本轮仅本地归档，不上传、不打 tag、不发布 Release。
+日期：2026-09-18。基于已 private 归档的 r1（`c3101af`），候选 `b6cba3e` 已完成 Fable 5.1 high 增量评审，结论为可以更新 private 仓库；回执见 [review-r2.md](review-r2.md)。评审收尾后按授权更新 private 仓库 main；本次不打 tag、不发布 Release。
 
 ## 修复的具体问题
 
