@@ -2,7 +2,7 @@
   "format": 1,
   "created": "2026-09-18",
   "revision": "r3-candidate",
-  "scope": "local unreviewed candidate; no production deployment or remote upload",
+  "scope": "local reviewed r3 candidate; no production deployment or remote upload",
   "files": [
     {
       "path": ".gitignore",
@@ -11,8 +11,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 7459,
-      "sha256": "455138db9c4bf0b11a7eaab4e616cfc3526678ab64b0ccf2c30e8bf8b5883ef8"
+      "bytes": 7460,
+      "sha256": "230e5c182d265ed3e88ef06e2ebd57a6a240de70c3831a4297bb2a1d1a9eccf1"
     },
     {
       "path": "REVIEW.md",
@@ -76,8 +76,8 @@
     },
     {
       "path": "docs/release-r3.md",
-      "bytes": 2937,
-      "sha256": "656fccdef18874fff81306448b24bd027b0934a853b020826fc989f4ec687f9a"
+      "bytes": 3277,
+      "sha256": "9c8d71acafe354f1f7d810cb269fcf8e7171df48e33d70bab98c2bdd0782b467"
     },
     {
       "path": "docs/review-fixes.md",
@@ -88,6 +88,11 @@
       "path": "docs/review-r2.md",
       "bytes": 1892,
       "sha256": "a086f2475c1215eedc6a0baf8fbd94d5fdb099bce8c6910f9327a6b9775fd967"
+    },
+    {
+      "path": "docs/review-r3.md",
+      "bytes": 1701,
+      "sha256": "33ad7d89c7e9ebbe4536cf136a1c450d577c59e54cd737257dbbf6e748ea909d"
     },
     {
       "path": "docs/verification.md",

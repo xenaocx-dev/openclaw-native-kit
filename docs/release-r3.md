@@ -1,6 +1,6 @@
 # 2026.9.4 r3 — 接管通知失败修复候选
 
-日期：2026-09-18。基线为已 private 上传的 r2 `40a0027`。本候选仅本地提交，待 Fable 5.1 high 增量评审；未同步维护目录、部署生产或上传 GitHub。
+日期：2026-09-18。基线为已 private 上传的 r2 `40a0027`。候选 `424168e` 已通过 Fable 5.1 high 增量评审，无必须先修的项；回执见 `docs/review-r3.md`。目前仍为本地候选，未同步维护目录、部署生产或上传 GitHub。
 
 ## 问题与修复
 
@@ -10,6 +10,8 @@ r2 新增的 authoritative 接管通知可能在原生 prompt 已被接受后抛
 
 - `manager-DTkVUGeR.mjs`：捕获等待 prompt readiness 时的观察回调异常，停止转发后续事件，请求取消并关闭事件流，等待原生 result 后再抛出原错误。原生 prompt 自身拒绝及正常完成的处理不变；原生已完成、通知稍后才失败时不再发起取消。
 - `dispatch-from-config-CmAXENud.mjs`：原生报告接手时，先调用现有 `markInboundDedupeReplayUnsafe`，再等待 ingress 接管通知。即使通知失败，后续 dispatcher 异常路径也提交去重记录，不释放已不可安全重放的消息。没有把持久化失败伪装成接管成功。
+
+该去重标记适用于所有经此 dispatcher 的 ACP authoritative prompt start，不限于 Telegram spooled 路径。即使渠道没有提供 `turnAdoptionLifecycle`，也会在原生确认接手时标记不可安全重放；仅构建 hook 不会标记。
 
 安装器、权限、认证、配置和超时值不变。manifest 仍为 20 项，增加两个 r2 hash 到 accepts。完整 r2 的 verify 应显示 2 个 ready-replace、18 个 installed；apply 和备份仅涉及这两个目标。
 
